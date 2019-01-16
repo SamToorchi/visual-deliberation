@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Example jQuery Timeline</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 4.0.0-alpha.6 -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Font Awesome latest -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!-- jQuery Timeline -->
+        <link href="./css/timeline.min.css?ver=1.0.5" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <nav class="content-header">
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="https://github.com/ka215/jquery.timeline"><i class="fa fa-plug"></i> jQuery Timeline</a></li>
+                    <li class="breadcrumb-item active"><a href="./index.html">Bar type</a></li>
+                    <li class="breadcrumb-item"><a href="./index2.html"><i class="fa fa-check-square-o"></i> Point type</a></li>
+                    <li class="breadcrumb-item"><a href="./index3.html">Multi Languages</a></li>
+                </ol>
+
+            </nav>
+            <!-- /.content-header -->
+
+            <section class="row">
+
+                <div class="content-main col-lg-12">
+
+                    <div id="myTimeline">
+                        <div class="timeline-events">
+                            <!-- point type events -->
+                            <label>Row 2</label>
+                            <div data-timeline-node="{ eventId:1, start:'2015-11-20 21:22',row:1,bdColor:'#942343' }">Event Relation 1</div>
+                            <div data-timeline-node="{ eventId:2, start:'2015-11-20 21:24',row:2,bdColor:'#942343' }">Event Relation 2</div>
+                            <div data-timeline-node="{ eventId:3, start:'2015-11-20 21:27',row:3,bdColor:'#FFE84B' }">Event Relation 3</div>
+                            <div data-timeline-node="{ eventId:4, start:'2015-11-20 21:27',row:4,bdColor:'#B1FF28' }">Event Relation 4</div>
+                            <div data-timeline-node="{ eventId:5, start:'2015-11-20 21:28',row:5,bdColor:'#80FFBE' }">Event Relation 5</div>
+                            <div data-timeline-node="{ eventId:6, start:'2015-11-20 21:30',row:6,bdColor:'#80FFBE', margin: 6 }">Event Relation 6</div>
+                            <div data-timeline-node="{ eventId:7, start:'2015-11-20 21:34',row:7,bdColor:'#48A1FF' }">Event Relation 7</div>
+                            <div data-timeline-node="{ eventId:8, start:'2015-11-20 21:36',row:8,bdColor:'#48A1FF' }">Event Relation 8</div>
+                            <div data-timeline-node="{ eventId:9, start:'2015-11-20 21:39',row:9,bdColor:'#163b5e' }">Event Relation 9</div>
+                            <div data-timeline-node="{ eventId:10,start:'2015-11-20 21:42',row:10,bdColor:'#7c3141' }">Event Relation 10</div>
+                            <div data-timeline-node="{ eventId:11,start:'2015-11-20 21:33',row:11,bdColor:'#7c3141' }">Event Relation 11</div>
+                            <div data-timeline-node="{ eventId:12,start:'2015-11-20 21:44',row:12,bdColor:'#942343' }">Event Relation 12</div>
+                            <div data-timeline-node="{ eventId:13,start:'2015-11-20 21:44',row:13,bdColor:'#FFE84B' }">Event Relation 13</div>
+                            <div data-timeline-node="{ eventId:14,start:'2015-11-20 21:45',row:14,bdColor:'#B1FF28' }">Event Relation 14</div>
+                            <div data-timeline-node="{ eventId:15,start:'2015-11-20 21:45',row:15,bdColor:'#80FFBE' }">Event Relation 15</div>
+                            <div data-timeline-node="{ eventId:16,start:'2015-11-20 21:45',row:16,bdColor:'#80FFBE' }">Event Relation 16</div>
+                            <div data-timeline-node="{ eventId:17,start:'2015-11-20 21:46',row:17,bdColor:'#48A1FF' }">Event Relation 17</div>
+                            <div data-timeline-node="{ eventId:18,start:'2015-11-20 21:46',row:18,bdColor:'#48A1FF' }">Event Relation 18</div>
+                            <div data-timeline-node="{ eventId:19,start:'2015-11-20 21:47',row:19,bdColor:'#163b5e' }">Event Relation 19</div>
+                            <div data-timeline-node="{ eventId:20,start:'2015-11-20 21:47',row:20,bdColor:'#7c3141' }">Event Relation 20</div>
+                            <div data-timeline-node="{ eventId:21,start:'2015-11-20 21:48',row:21,bdColor:'#7c3141' }">Event Relation 21</div>
+                            <div data-timeline-node="{ eventId:23,start:'2015-11-20 21:51',row:23,bdColor:'#FFE84B' }">Event Relation 23</div>
+                            <div data-timeline-node="{ eventId:24,start:'2015-11-20 22:00',row:24,bdColor:'#B1FF28' }">Event Relation 24</div>
+                            <div data-timeline-node="{ eventId:25,start:'2015-11-20 22:01',row:25,bdColor:'#80FFBE' }">Event Relation 25</div>
+                            <div data-timeline-node="{ eventId:27,start:'2015-11-20 22:05',row:27,bdColor:'#48A1FF' }">Event Relation 27</div>
+                            <div data-timeline-node="{ eventId:28,start:'2015-11-20 21:30',row:6,bdColor:'#48A1FF', margin: 12, relation:{before:6} }">Event Relation 28</div>
+                            <div data-timeline-node="{ eventId:29,start:'2015-11-20 21:47',row:29,bdColor:'#163b5e' }">Event Relation 29</div>
+                            <div data-timeline-node="{ eventId:30,start:'2015-11-20 21:47',row:30,bdColor:'#7c3141' }">Event Relation 30</div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.content-main -->
+
+                <div class="col-lg-6 col-md-12" hidden>
+
+                    <div class="card mb-3">
+                        <div class"card-block">
+                            <h5><i class="fa fa-cog"></i> Timeline Configuration</h5>
+                            <div class="card-text">
+                                <!-- configuration content -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-lg-12 col-md-12">
+
+                    <div class="card mb-3">
+                        <div class="card-block timeline-event-view">
+                            <p class="h1">Timeline Event Detail</p>
+                            <p class="lead">Please click on any event on the above timeline.</p>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+
+            </section>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="timeline-event-view"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+
+        <!-- REQUIRED JS SCRIPTS -->
+
+        <!-- jQuery (latest 3.2.1) -->
+        <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <!-- tether 1.4.0 (for using bootstrap's tooltip component) -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap 4.0.0-alpha.6 -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <!-- jQuery Timeline -->
+        <script src="./js/timeline.min.js?ver=1.0.5"></script>
+        <!-- local scripts -->
+        <script>
+            $(function () {
+
+                $("#myTimeline").timeline({
+                    type: 'point',
+                    scale: 'days',
+                    startDatetime: '2015-11-20 15:30',
+                    rows: 30,
+                    rangeAlign: 'center',
+                    range: 1,
+                    minuteInterval: 30,
+                    minGridPer: 4,
+                    zoom: true
+                });
+
+                $("#myTimeline").on("afterRender.timeline", function(){
+                    // usage bootstrap's popover
+                    $('.timeline-node').each(function(){
+                        if ( $(this).data('toggle') === 'popover' ) {
+                            $(this).attr( 'title', $(this).text() );
+                            $(this).popover({
+                                trigger: 'hover'
+                            });
+                        }
+                    });
+                });
+
+            });
+        </script>
+    </body>
+</html>

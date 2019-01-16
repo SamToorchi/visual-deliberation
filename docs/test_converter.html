@@ -1,0 +1,77 @@
+//Here is the full phase working CSV to JSON using vanilla JavaScript and HTML 5, Which populates result in Console.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSV to JSON</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <script src="convert.js"></script> -->
+    </head>
+    <body style="text-align:center">
+        CSV to JSON
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "data.txt",
+                    dataType: "text",
+                    success: function(data) {processData(data);}
+                });
+            });
+
+            function Upload() {
+                var fileUpload = './parse/content/article_1.csv';
+                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+                if (regex.test(fileUpload.value.toLowerCase())) {
+                    if (typeof (FileReader) != "undefined") {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            console.log("Raw File");
+                            console.log(e.target.result);
+                            var lines=e.target.result.split('\r');
+                            for(let i = 0; i<lines.length; i++){
+                                lines[i] = lines[i].replace(/\s/,'')//delete all blanks
+                            }
+                            var result = [];
+
+                            var headers=lines[0].split(",");
+
+                            for(var i=1;i<lines.length;i++){
+
+                                var obj = {};
+                                var currentline=lines[i].split(",");
+
+                                for(var j=0;j<headers.length;j++){
+                                    obj[headers[j]] = currentline[j];
+                                }
+
+                                result.push(obj);
+
+                            }
+
+                            //return result; //JavaScript object
+                            console.log("After JSON Conversion");
+
+                            console.log(JSON.stringify(result));
+
+                            return JSON.stringify(result); //JSON
+
+                        }
+                        reader.readAsText(fileUpload.files[0]);
+                    } else {
+                        alert("This browser does not support HTML5.");
+                    }
+                } else {
+                    alert("Please upload a valid CSV file.");
+                }
+            }
+        </script>
+        <br>
+        <br>
+        <input type="file" id="fileUpload" />
+        <input type="button" id="upload" value="Upload" onclick="Upload()" />
+    </body>
+</html>
