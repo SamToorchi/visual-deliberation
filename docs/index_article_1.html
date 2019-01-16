@@ -43,16 +43,30 @@
 
 
                     <div id="myTimeline">
-                        <div class="timeline-events">
-                            <!-- point type events -->
-                            <label>Row 2</label>
+                        <div class="timeline-events" id="demo" >
+                            <!--
+                            <div data-timeline-node="{ eventId:1, start:'2015-11-20 15:33',row:1,bdColor:'#942343' }">Event Relation 1</div>
+                            <div data-timeline-node="{ eventId:2, start:'2015-11-20 15:38',row:2,margin:12,bdColor:'#942343',relation:{before:1} }">Event Relation 2</div>
+                            <div data-timeline-node="{ eventId:3, start:'2015-11-20 15:50',row:1,bdColor:'#FFE84B' }">Event Relation 3</div>
+                            <div data-timeline-node="{ eventId:4, start:'2015-11-20 15:56',row:1,bdColor:'#B1FF28' }">Event Relation 4</div>
+                            <div data-timeline-node="{ eventId:5, start:'2015-11-20 15:57',row:1,bdColor:'#80FFBE' }">Event Relation 5</div>
+                            <div data-timeline-node="{ eventId:6, start:'2015-11-20 15:57',row:2,bdColor:'#80FFBE', relation:{before:5}, margin: 12 }">Event Relation 6</div>
+                            <div data-timeline-node="{ eventId:7, start:'2015-11-20 16:51',row:1,bdColor:'#48A1FF' }">Event Relation 7</div>
+                            <div data-timeline-node="{ eventId:8, start:'2015-11-20 16:51',row:2,bdColor:'#48A1FF', relation:{before:7}, margin: 12 }">Event Relation 8</div>
+                            <div data-timeline-node="{ eventId:9, start:'2015-11-20 19:31',row:1,bdColor:'#163b5e' }">Event Relation 9</div>
+                            <div data-timeline-node="{ eventId:10, start:'2015-11-20 21:33',row:1,bdColor:'#7c3141' }">Event Relation 10</div>
+                            <div data-timeline-node="{ eventId:11, start:'2015-11-20 21:33',row:2,bdColor:'#7c3141', relation:{before:10} }">Event Relation 11</div>
+-->
                             
+
 
                         </div>
                     </div>
+                    <div id="demo"></div>
 
                     <button id="one" type="button" value="4">zoom in</button>
                     <button id="two" type="button" value="4">zoom out</button>
+                    <input type="button" id="upload" value="Upload" onclick="Upload()" />
 
 
                 </div>
@@ -112,6 +126,7 @@
         <!-- REQUIRED JS SCRIPTS -->
 
         <!-- jQuery (latest 3.2.1) -->
+        <script type="text/javascript" src="../parse/js/papaparse.js"></script>
         <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <!-- tether 1.4.0 (for using bootstrap's tooltip component) -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
@@ -121,6 +136,78 @@
         <script src="./js/timeline.min.js"></script>
         <!-- local scripts -->
         <script>
+            
+            window.onload=Upload();
+            /**  var file = "\\files\\telemetryData.csv"; **/
+            function Upload() {
+                var dirtyNodeData = [];
+                var data;
+                // var file = evt.target.files[0];
+                var file = "content/article_1.csv";
+
+                Papa.parse(file, {
+                    //makes sure the first line is interpreted as a header, not data
+                    header: true,
+
+                    //allows stuff to be typed as their respective primitive types instead of only strings. turned off in this case
+                    dynamicTyping: true,
+
+                    //allows you to define the delimiter if not a default comma
+                    delimiter: ";",
+
+                    //allows you to define a comment line, which would be skipped by the parser
+                    comments: "//",
+
+                    //turns on fastmode, quicker but assumes no quoted fields is present
+                    fastmode: true,
+
+                    download: true,
+
+
+                    /*
+                step: function(results){
+                    console.log(results.data);
+                    generateCode(results.data);
+
+                },
+                */
+                    complete: function(results, file) {
+                        console.log("Parsing complete:", results, file);
+                        generateCode(results.data);
+
+                    }
+
+
+                });
+                generateCode(dirtyNodeData);
+            }
+
+
+
+            function generateCode(dirtyNodeData){
+
+                var generatedHTMLCode = String("");
+                var i;
+
+                // alert( obj[0].beznr_komm );
+
+                for (i = 0; i<dirtyNodeData.length; i++){
+
+                    if (dirtyNodeData[i].beznr_komm == 9999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\' }\"> Event Relation" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else {
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\' ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" >"  +  "Event Relation" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+                }
+
+                $('#htmlresults').val(generatedHTMLCode);
+
+
+                document.getElementById('demo').innerHTML = generatedHTMLCode;
+            }
+
 
 
             var ab;
