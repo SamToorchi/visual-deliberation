@@ -143,7 +143,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_1_new.csv";
+                var file = "content/article_7.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -206,9 +206,7 @@
 
 
                 document.getElementById('demo').innerHTML = generatedHTMLCode;
-                 
             }
-            
 
 
 
@@ -233,11 +231,12 @@
                 });
 
 
+
                 $("#myTimeline").timeline({
                     type: 'point',
                     scale: 'days',
                     startDatetime: '2015-11-20 00:00',
-                    rows: 11,
+                    rows: 12,
                     rangeAlign: 'left',
                     range: 1,
                     minuteInterval: 1,
