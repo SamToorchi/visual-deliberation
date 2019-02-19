@@ -135,7 +135,7 @@
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
         <!-- local scripts -->
-        <script>
+               <script>
 
             window.onload=Upload();
             /**  var file = "\\files\\telemetryData.csv"; **/
@@ -143,7 +143,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_2.csv";
+                var file = "content/article_13.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -189,16 +189,15 @@
                 var generatedHTMLCode = String("");
                 var i;
 
-                // alert( obj[0].beznr_komm );
 
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].text  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].text  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
@@ -211,10 +210,56 @@
 
 
             var ab;
-            ab=4; 
+            ab=24; 
+
+
+            $.openMyEvent = function(event) {
+                console.log('openEvent - event clicked...');
+                console.info($('.timeline-node.active').data());
+                $('.timeline-node.active').css("transform", "scale(1.5)");
+
+
+                function test ($node){
+                    var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                    var i = $node.data('relayBefore');
+                    console.log(i);
+                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
+                    console.log($('.timeline-node[data-relay-before=' + i + ']'));
+                    $liste.css("transform", "scale(1.5)");
+
+
+
+                    if ( $node.data('relayBefore') > 0 ) {
+                        var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                        if ( $beforeNode.length > 0 ) {
+                            $beforeNode.css("transform", "scale(1.5)");
+
+                            test($beforeNode);
+                        }
+                    }
+
+                    if ( $node.data('relayBefore') != undefined ) {
+                        if ( $node.data('relayBefore') > 0 ) {
+                            var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                            if ( $beforeNode.length > 0 ) {
+                                $beforeNode.css("transform", "scale(1.5)");
+
+                                test($beforeNode);
+                            }
+                        }
+                    }
+                };
+
+                test($('.timeline-node.active'));
+
+                $("body").on('dblclick', function() {
+                    $('.timeline-node').css("transform", "scale(1)");
+                });
+            };
+
+
 
             $(function () {
-
 
 
                 $('#one').click(function() {
@@ -230,37 +275,14 @@
 
                 });
 
-                $.openMyEvent = function(event) {
-                    console.log('openEvent - event clicked...');
-                    // Retrieve extended data from an opened event 
-                    console.info( $('.timeline-node.active').data() );
-                    $('.timeline-node.active').css("visibility", "hidden");
-                    
-                    console.log($('.timeline-node.active').data('relayBefore'));
-                    // Draw lines
-                    if ( $('.timeline-node.active').data('relayBefore') != undefined ) {
-                        // Draw from before-event to myself
-                        if ( $('.timeline-node.active').data('relayBefore') > 0 ) {
-                            if ( $('#evt-' + $('.timeline-node.active').data('relayBefore')).length > 0 ) {
-                                $('#evt-' + $('.timeline-node.active').data('relayBefore')).css("visibility", "hidden");
-                            }
-                        } 
-
-                    }
-
-
-                };
-
-
-
 
 
                 $("#myTimeline").timeline({
                     type: 'point',
                     scale: 'days',
                     startDatetime: '2015-11-20 00:00',
-                    rows: 2,
-                    rangeAlign: 'right',
+                    rows: 4,
+                    rangeAlign: 'left',
                     range: 1,
                     minuteInterval: 1,
                     minGridPer: ab
