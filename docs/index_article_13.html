@@ -45,19 +45,19 @@
                     <div id="myTimeline">
                         <div class="timeline-events" id="demo" >
                             <!--
-                            <div data-timeline-node="{ eventId:1, start:'2015-11-20 15:33',row:1,bdColor:'#942343' }">Event Relation 1</div>
-                            <div data-timeline-node="{ eventId:2, start:'2015-11-20 15:38',row:2,margin:12,bdColor:'#942343',relation:{before:1} }">Event Relation 2</div>
-                            <div data-timeline-node="{ eventId:3, start:'2015-11-20 15:50',row:1,bdColor:'#FFE84B' }">Event Relation 3</div>
-                            <div data-timeline-node="{ eventId:4, start:'2015-11-20 15:56',row:1,bdColor:'#B1FF28' }">Event Relation 4</div>
-                            <div data-timeline-node="{ eventId:5, start:'2015-11-20 15:57',row:1,bdColor:'#80FFBE' }">Event Relation 5</div>
-                            <div data-timeline-node="{ eventId:6, start:'2015-11-20 15:57',row:2,bdColor:'#80FFBE', relation:{before:5}, margin: 12 }">Event Relation 6</div>
-                            <div data-timeline-node="{ eventId:7, start:'2015-11-20 16:51',row:1,bdColor:'#48A1FF' }">Event Relation 7</div>
-                            <div data-timeline-node="{ eventId:8, start:'2015-11-20 16:51',row:2,bdColor:'#48A1FF', relation:{before:7}, margin: 12 }">Event Relation 8</div>
-                            <div data-timeline-node="{ eventId:9, start:'2015-11-20 19:31',row:1,bdColor:'#163b5e' }">Event Relation 9</div>
-                            <div data-timeline-node="{ eventId:10, start:'2015-11-20 21:33',row:1,bdColor:'#7c3141' }">Event Relation 10</div>
-                            <div data-timeline-node="{ eventId:11, start:'2015-11-20 21:33',row:2,bdColor:'#7c3141', relation:{before:10} }">Event Relation 11</div>
+<div data-timeline-node="{ eventId:1, start:'2015-11-20 15:33',row:1,bdColor:'#942343' }">Event Relation 1</div>
+<div data-timeline-node="{ eventId:2, start:'2015-11-20 15:38',row:2,margin:12,bdColor:'#942343',relation:{before:1} }">Event Relation 2</div>
+<div data-timeline-node="{ eventId:3, start:'2015-11-20 15:50',row:1,bdColor:'#FFE84B' }">Event Relation 3</div>
+<div data-timeline-node="{ eventId:4, start:'2015-11-20 15:56',row:1,bdColor:'#B1FF28' }">Event Relation 4</div>
+<div data-timeline-node="{ eventId:5, start:'2015-11-20 15:57',row:1,bdColor:'#80FFBE' }">Event Relation 5</div>
+<div data-timeline-node="{ eventId:6, start:'2015-11-20 15:57',row:2,bdColor:'#80FFBE', relation:{before:5}, margin: 12 }">Event Relation 6</div>
+<div data-timeline-node="{ eventId:7, start:'2015-11-20 16:51',row:1,bdColor:'#48A1FF' }">Event Relation 7</div>
+<div data-timeline-node="{ eventId:8, start:'2015-11-20 16:51',row:2,bdColor:'#48A1FF', relation:{before:7}, margin: 12 }">Event Relation 8</div>
+<div data-timeline-node="{ eventId:9, start:'2015-11-20 19:31',row:1,bdColor:'#163b5e' }">Event Relation 9</div>
+<div data-timeline-node="{ eventId:10, start:'2015-11-20 21:33',row:1,bdColor:'#7c3141' }">Event Relation 10</div>
+<div data-timeline-node="{ eventId:11, start:'2015-11-20 21:33',row:2,bdColor:'#7c3141', relation:{before:10} }">Event Relation 11</div>
 -->
-                            
+
 
 
                         </div>
@@ -136,7 +136,7 @@
         <script src="js/timeline.js"></script>
         <!-- local scripts -->
         <script>
-            
+
             window.onload=Upload();
             /**  var file = "\\files\\telemetryData.csv"; **/
             function Upload() {
@@ -194,11 +194,11 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
@@ -213,8 +213,64 @@
             var ab;
             ab=24; 
 
-            $(function () {
 
+            $.openMyEvent = function(event) {
+                console.log('openEvent - event clicked...');
+                // Retrieve extended data from an opened event 
+                console.info($('.timeline-node.active').data());
+                $('.timeline-node.active').css("transform", "scale(1.5)");
+
+
+                function test ($node){
+                    var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                    
+                    var i = $node.data('relayBefore');
+                    console.log(i);
+                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
+                    console.log($('.timeline-node[data-relay-before=' + i + ']'));
+                    $liste.css("transform", "scale(1.5)");
+
+                
+                // Draw from before-event to myself
+                if ( $node.data('relayBefore') > 0 ) {
+                    var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                    if ( $beforeNode.length > 0 ) {
+                        $beforeNode.css("transform", "scale(1.5)");
+
+                        test($beforeNode);
+                    }
+                }
+
+                if ( $node.data('relayBefore') != undefined ) {
+                    // Draw from before-event to myself
+                    if ( $node.data('relayBefore') > 0 ) {
+                        var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                        if ( $beforeNode.length > 0 ) {
+                            $beforeNode.css("transform", "scale(1.5)");
+
+                            test($beforeNode);
+                        }
+                    }
+                }
+            };
+
+            test($('.timeline-node.active'));
+            // Draw lines
+            /*if ( $('.timeline-node.active').data('relayBefore') != undefined ) {
+                        // Draw from before-event to myself
+                        if ( $('.timeline-node.active').data('relayBefore') > 0 ) {
+                            if ( $('#evt-' + $('.timeline-node.active').data('relayBefore')).length > 0 ) {
+                                $('#evt-' + $('.timeline-node.active').data('relayBefore')).css("visibility", "hidden");
+
+                                test($('#evt-' + $('.timeline-node.active').data('relayBefore')));
+                            }
+                        } 
+                    }*/
+            };
+
+
+
+            $(function () {
 
 
                 $('#one').click(function() {
