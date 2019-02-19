@@ -189,7 +189,6 @@
                 var generatedHTMLCode = String("");
                 var i;
 
-                // alert( obj[0].beznr_komm );
 
                 for (i = 0; i<dirtyNodeData.length; i++){
 
@@ -216,33 +215,20 @@
 
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
-                // Retrieve extended data from an opened event 
                 console.info($('.timeline-node.active').data());
                 $('.timeline-node.active').css("transform", "scale(1.5)");
 
 
                 function test ($node){
                     var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-                    
                     var i = $node.data('relayBefore');
                     console.log(i);
                     var $liste = $('.timeline-node[data-relay-before=' + i + ']');
                     console.log($('.timeline-node[data-relay-before=' + i + ']'));
                     $liste.css("transform", "scale(1.5)");
 
-                
-                // Draw from before-event to myself
-                if ( $node.data('relayBefore') > 0 ) {
-                    var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-                    if ( $beforeNode.length > 0 ) {
-                        $beforeNode.css("transform", "scale(1.5)");
 
-                        test($beforeNode);
-                    }
-                }
 
-                if ( $node.data('relayBefore') != undefined ) {
-                    // Draw from before-event to myself
                     if ( $node.data('relayBefore') > 0 ) {
                         var $beforeNode = $('#evt-' + $node.data('relayBefore'));
                         if ( $beforeNode.length > 0 ) {
@@ -251,21 +237,24 @@
                             test($beforeNode);
                         }
                     }
-                }
-            };
 
-            test($('.timeline-node.active'));
-            // Draw lines
-            /*if ( $('.timeline-node.active').data('relayBefore') != undefined ) {
-                        // Draw from before-event to myself
-                        if ( $('.timeline-node.active').data('relayBefore') > 0 ) {
-                            if ( $('#evt-' + $('.timeline-node.active').data('relayBefore')).length > 0 ) {
-                                $('#evt-' + $('.timeline-node.active').data('relayBefore')).css("visibility", "hidden");
+                    if ( $node.data('relayBefore') != undefined ) {
+                        if ( $node.data('relayBefore') > 0 ) {
+                            var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                            if ( $beforeNode.length > 0 ) {
+                                $beforeNode.css("transform", "scale(1.5)");
 
-                                test($('#evt-' + $('.timeline-node.active').data('relayBefore')));
+                                test($beforeNode);
                             }
-                        } 
-                    }*/
+                        }
+                    }
+                };
+
+                test($('.timeline-node.active'));
+
+                $("body").on('dblclick', function() {
+                    $('.timeline-node').css("transform", "scale(1)");
+                });
             };
 
 
