@@ -255,86 +255,10 @@
                 }
                 */
 
-                function test_2($node){
-                    var a = $node.data('relayBefore');
-                    console.log(a);
-                    var $liste = $('.timeline-node[data-relay-before=' + a + ']');
-
-
-                    $liste.css("transform", "scale(1.5)");
-                    $liste.css("border-color", "blue");
-
-                    /*  $('.timeline-node').attr("data-relay-linecolor", "#3CCF70"); */
-
-
-                };
+                
 
                 function test ($node){
                     var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-
-                    var i = $node.data('relayBefore');
-                    console.log(i);
-                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
-                    console.log($('.timeline-node[data-relay-before=' + i + ']'));
-
-                    var j = $liste.data('relayBefore');
-                    console.log(j);
-                    var $lliste = $('.timeline-node[data-relay-before=' + j + ']');
-                    console.log($('.timeline-node[data-relay-before=' + j + ']'));
-
-                    var k = $lliste.data('relayBefore');
-                    console.log(k);
-                    var $llliste = $('.timeline-node[data-relay-before=' + k + ']');
-                    console.log($('.timeline-node[data-relay-before=' + k + ']'));
-
-                    var l = $llliste.data('relayBefore');
-                    console.log(l);
-                    var $lllliste = $('.timeline-node[data-relay-before=' + l + ']');
-                    console.log($('.timeline-node[data-relay-before=' + l + ']'));
-
-                    var m = $lllliste.data('relayBefore');
-                    console.log(m);
-                    var $llllliste = $('.timeline-node[data-relay-before=' + m + ']');
-                    console.log($('.timeline-node[data-relay-before=' + m + ']'));
-
-                    var n = $llllliste.data('relayBefore');
-                    console.log(n);
-                    var $lllllliste = $('.timeline-node[data-relay-before=' + n + ']');
-                    console.log($('.timeline-node[data-relay-before=' + n + ']'));
-
-
-                    $liste.css("transform", "scale(1.5)");
-                    $liste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lliste.css("transform", "scale(1.5)");
-                    $lliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $llliste.css("transform", "scale(1.5)");
-                    $llliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lllliste.css("transform", "scale(1.5)");
-                    $lllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-
-                    $llllliste.css("transform", "scale(1.5)");
-                    $llllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lllllliste.css("transform", "scale(1.5)");
-                    $lllllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    for (i=0; i<50; i++){
-                        console.log('for Schleife!');
-                        test_2($liste.addClass('active'));
-                    }
-
-
-
 
 
 
@@ -347,14 +271,26 @@
                         }
                     }
 
-                  
+                    /*
+                    if ( $node.data('relayBefore') != undefined ) {
+                        if ( $node.data('relayBefore') > 0 ) {
+                            var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                            if ( $beforeNode.length > 0 ) {
+                                $beforeNode.css("transform", "scale(1.5)");
+                                $beforeNode.css("border-color", "blue");
+
+
+                                test($beforeNode);
+                            }
+                        }
+                    }
+                    */
 
 
                 };
 
                 test($('.timeline-node.active'));
-                test_2($('.timeline-node.active'));
-                drowRelationLine($('.timeline-node.active'));
+              
 
 
                 $("body").on('dblclick', function() {

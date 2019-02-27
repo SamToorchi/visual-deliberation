@@ -44,21 +44,7 @@
 
                     <div id="myTimeline">
                         <div class="timeline-events" id="demo" >
-                            <!--
-<div data-timeline-node="{ eventId:1, start:'2015-11-20 15:33',row:1,bdColor:'#942343' }">Event Relation 1</div>
-<div data-timeline-node="{ eventId:2, start:'2015-11-20 15:38',row:2,margin:12,bdColor:'#942343',relation:{before:1} }">Event Relation 2</div>
-<div data-timeline-node="{ eventId:3, start:'2015-11-20 15:50',row:1,bdColor:'#FFE84B' }">Event Relation 3</div>
-<div data-timeline-node="{ eventId:4, start:'2015-11-20 15:56',row:1,bdColor:'#B1FF28' }">Event Relation 4</div>
-<div data-timeline-node="{ eventId:5, start:'2015-11-20 15:57',row:1,bdColor:'#80FFBE' }">Event Relation 5</div>
-<div data-timeline-node="{ eventId:6, start:'2015-11-20 15:57',row:2,bdColor:'#80FFBE', relation:{before:5}, margin: 12 }">Event Relation 6</div>
-<div data-timeline-node="{ eventId:7, start:'2015-11-20 16:51',row:1,bdColor:'#48A1FF' }">Event Relation 7</div>
-<div data-timeline-node="{ eventId:8, start:'2015-11-20 16:51',row:2,bdColor:'#48A1FF', relation:{before:7}, margin: 12 }">Event Relation 8</div>
-<div data-timeline-node="{ eventId:9, start:'2015-11-20 19:31',row:1,bdColor:'#163b5e' }">Event Relation 9</div>
-<div data-timeline-node="{ eventId:10, start:'2015-11-20 21:33',row:1,bdColor:'#7c3141' }">Event Relation 10</div>
-<div data-timeline-node="{ eventId:11, start:'2015-11-20 21:33',row:2,bdColor:'#7c3141', relation:{before:10} }">Event Relation 11</div>
--->
-
-
+                            
 
                         </div>
                     </div>
@@ -255,86 +241,69 @@
                 }
                 */
 
-                function test_2($node){
-                    var a = $node.data('relayBefore');
-                    console.log(a);
-                    var $liste = $('.timeline-node[data-relay-before=' + a + ']');
+
+                function mark($node){
+
+                    var i = $('.timeline-node.active').attr('id').replace('evt-', '') ;
+                    console.log(i);
 
 
+                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
+                    console.log('Länge der ersten Liste: ' + $liste.length);
+                    console.log($liste);
+                    /*$liste.addClass('active');*/
                     $liste.css("transform", "scale(1.5)");
                     $liste.css("border-color", "blue");
+                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
 
-                    /*  $('.timeline-node').attr("data-relay-linecolor", "#3CCF70"); */
+                    $.each($liste, function(){
+                        console.log('ob das geht???' + $(this).data('relayBefore'));
+                    })
+                    if($liste.length >= 1){
+                        var j = $liste.attr('id').replace('evt-', '') ;
+                        var $lliste = $('.timeline-node[data-relay-before=' + j + ']');
+                        console.log('Länge der zweiten Liste: ' + $lliste.length);
+                        $lliste.css("transform", "scale(1.5)");
+                        $lliste.css("border-color", "blue");
+                        $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
+
+                        if($lliste.length >= 1){
+                            var k = $lliste.attr('id').replace('evt-', '') ;
+                            var $llliste = $('.timeline-node[data-relay-before=' + k + ']');
+                            console.log('Länge der dritten Liste: ' + $llliste.length); 
+                            $llliste.css("transform", "scale(1.5)");
+                            $llliste.css("border-color", "blue");
+                            $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
 
 
-                };
+                            if($llliste.length >= 1){
+                                var l = $llliste.attr('id').replace('evt-', '') ;
+                                var $lllliste = $('.timeline-node[data-relay-before=' + l + ']');
+                                console.log('Länge der vierten Liste: ' + $lllliste.length); 
+                                $lllliste.css("transform", "scale(1.5)");
+                                $lllliste.css("border-color", "blue");
+                                $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
+
+
+                                if($lllliste.length >= 1){
+                                    var m = $lllliste.attr('id').replace('evt-', '') ;
+                                    var $llllliste = $('.timeline-node[data-relay-before=' + m + ']');
+                                    console.log('Länge der fünften Liste: ' + $llllliste.length);
+                                    $llllliste.css("transform", "scale(1.5)");
+                                    $llllliste.css("border-color", "blue");
+                                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+
 
                 function test ($node){
+
                     var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-
-                    var i = $node.data('relayBefore');
-                    console.log(i);
-                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
-                    console.log($('.timeline-node[data-relay-before=' + i + ']'));
-
-                    var j = $liste.data('relayBefore');
-                    console.log(j);
-                    var $lliste = $('.timeline-node[data-relay-before=' + j + ']');
-                    console.log($('.timeline-node[data-relay-before=' + j + ']'));
-
-                    var k = $lliste.data('relayBefore');
-                    console.log(k);
-                    var $llliste = $('.timeline-node[data-relay-before=' + k + ']');
-                    console.log($('.timeline-node[data-relay-before=' + k + ']'));
-
-                    var l = $llliste.data('relayBefore');
-                    console.log(l);
-                    var $lllliste = $('.timeline-node[data-relay-before=' + l + ']');
-                    console.log($('.timeline-node[data-relay-before=' + l + ']'));
-
-                    var m = $lllliste.data('relayBefore');
-                    console.log(m);
-                    var $llllliste = $('.timeline-node[data-relay-before=' + m + ']');
-                    console.log($('.timeline-node[data-relay-before=' + m + ']'));
-
-                    var n = $llllliste.data('relayBefore');
-                    console.log(n);
-                    var $lllllliste = $('.timeline-node[data-relay-before=' + n + ']');
-                    console.log($('.timeline-node[data-relay-before=' + n + ']'));
-
-
-                    $liste.css("transform", "scale(1.5)");
-                    $liste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lliste.css("transform", "scale(1.5)");
-                    $lliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $llliste.css("transform", "scale(1.5)");
-                    $llliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lllliste.css("transform", "scale(1.5)");
-                    $lllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-
-                    $llllliste.css("transform", "scale(1.5)");
-                    $llllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    $lllllliste.css("transform", "scale(1.5)");
-                    $lllllliste.css("border-color", "blue");
-                    $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
-
-                    for (i=0; i<50; i++){
-                        console.log('for Schleife!');
-                        test_2($liste.addClass('active'));
-                    }
-
-
-
 
 
 
@@ -347,14 +316,11 @@
                         }
                     }
 
-                  
-
-
                 };
 
                 test($('.timeline-node.active'));
-                test_2($('.timeline-node.active'));
-                drowRelationLine($('.timeline-node.active'));
+                mark($('.timeline-node.active'));
+
 
 
                 $("body").on('dblclick', function() {
