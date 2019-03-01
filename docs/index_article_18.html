@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Example jQuery Timeline</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 4.0.0-alpha.6 -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Font Awesome latest -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!-- jQuery Timeline -->
+        <link href="./css/timeline.min.css?ver=1.0.5" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body id="body">
+        <div class="container-fluid">
+
+            <nav class="content-header">
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="https://github.com/ka215/jquery.timeline"><i class="fa fa-plug"></i> jQuery Timeline</a></li>
+                    <li class="breadcrumb-item active"><a href="./index_article_2.html">secount interval</a></li>
+                    <li class="breadcrumb-item"><a href="./index2.html"><i class="fa fa-check-square-o"></i> Point type</a></li>
+                    <li class="breadcrumb-item"><a href="./index3.html">Multi Languages</a></li>
+                </ol>
+
+            </nav>
+
+
+            <!-- /.content-header -->
+
+            <section class="row">
+
+                <div class="content-main col-lg-12">
+
+
+
+                    <div id="myTimeline">
+                        <div class="timeline-events" id="demo" >
+
+                        </div>
+                    </div>
+                    <div id="demo"></div>
+
+                    <button id="one" type="button" value="4">zoom in</button>
+                    <button id="two" type="button" value="4">zoom out</button>
+                    <input type="button" id="upload" value="Upload" onclick="Upload()" />
+
+
+                </div>
+                <!-- /.content-main -->
+
+                <div class="col-lg-6 col-md-12" hidden>
+
+                    <div class="card mb-3">
+                        <div class"card-block">
+                            <h5><i class="fa fa-cog"></i> Timeline Configuration</h5>
+                            <div class="card-text">
+                                <!-- configuration content -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-lg-12 col-md-12">
+
+                    <div class="card mb-3">
+                        <div class="card-block timeline-event-view">
+                            <p class="h1">Timeline Event Detail</p>
+                            <p class="lead">Please click on any event on the above timeline.</p>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+
+            </section>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="timeline-event-view"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+
+        <!-- REQUIRED JS SCRIPTS -->
+
+        <!-- jQuery (latest 3.2.1) -->
+        <script type="text/javascript" src="../parse/js/papaparse.js"></script>
+        <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <!-- tether 1.4.0 (for using bootstrap's tooltip component) -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap 4.0.0-alpha.6 -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <!-- jQuery Timeline -->
+        <script src="js/timeline.js"></script>
+        
+                        <!-- local scripts -->
+        <script>
+
+            window.onload=Upload();
+            /**  var file = "\\files\\telemetryData.csv"; **/
+            function Upload() {
+                var dirtyNodeData = [];
+                var data;
+                // var file = evt.target.files[0];
+                var file = "content/article_18.csv";
+
+                Papa.parse(file, {
+                    //makes sure the first line is interpreted as a header, not data
+                    header: true,
+
+                    //allows stuff to be typed as their respective primitive types instead of only strings. turned off in this case
+                    dynamicTyping: true,
+
+                    //allows you to define the delimiter if not a default comma
+                    delimiter: ";",
+
+                    //allows you to define a comment line, which would be skipped by the parser
+                    comments: "//",
+
+                    //turns on fastmode, quicker but assumes no quoted fields is present
+                    fastmode: true,
+
+                    download: true,
+
+
+                    /*
+                step: function(results){
+                    console.log(results.data);
+                    generateCode(results.data);
+
+                },
+                */
+                    complete: function(results, file) {
+                        console.log("Parsing complete:", results, file);
+                        generateCode(results.data);
+
+                    }
+
+
+                });
+                generateCode(dirtyNodeData);
+            }
+
+
+
+            function generateCode(dirtyNodeData){
+
+                var generatedHTMLCode = String("");
+                var i;
+
+
+                for (i = 0; i<dirtyNodeData.length; i++){
+
+                    if (dirtyNodeData[i].beznr_komm == 9999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else {
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+                }
+
+                $('#htmlresults').val(generatedHTMLCode);
+
+
+                document.getElementById('demo').innerHTML = generatedHTMLCode;
+            }
+
+
+
+            var ab;
+            ab=24; 
+
+
+
+
+            $.openMyEvent = function(event) {
+                console.log('openEvent - event clicked...');
+                console.info($('.timeline-node.active').data());
+                $('.timeline-node.active').css("transform", "scale(1.5)");
+                $('.timeline-node.active').css("border-color", "blue");
+
+
+
+
+
+
+                function mark($node){
+
+
+                    if($node.length >=1){
+
+
+
+                        $.each($node, function(index, value){
+                            console.log(value);
+                            var i = $(value).attr('id').replace('evt-', '') ;
+                            console.log('nochmal');
+                            var $liste = $('.timeline-node[data-relay-before=' + i + ']');
+                            console.log('Länge der ersten Liste: ' + $liste.length);
+                            console.log($liste);
+                            /*$liste.addClass('active');*/
+                            $liste.css("transform", "scale(1.5)");
+                            $liste.css("border-color", "blue");
+                            $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
+                            mark($liste);
+                        })
+                    } 
+                }
+
+                function test ($node){
+
+                    var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                    if ( $node.data('relayBefore') > 0 ) {
+                        var $beforeNode = $('#evt-' + $node.data('relayBefore'));
+                        if ( $beforeNode.length > 0 ) {
+                            $beforeNode.css("transform", "scale(1.5)");
+                            $beforeNode.css("border-color", "blue");
+                            test($beforeNode);
+                        }
+                    }
+
+                };
+
+                test($('.timeline-node.active'));
+                mark($('.timeline-node.active'));
+
+                $("body").on('dblclick', function() {
+                    $('.timeline-node').css("transform", "scale(1)");
+                    $('.timeline-node').css("border-color", "#942343");
+
+                });
+            };
+
+
+
+            $(function () {
+
+                $('#one').click(function() {
+                    ab+=4;
+                    $("#myTimeline").timeline('render', {minGridPer:ab});
+
+                });
+
+
+                $('#two').click(function() {
+                    ab-=4;
+                    $("#myTimeline").timeline('render', {minGridPer:ab});
+
+                });
+
+
+
+                $("#myTimeline").timeline({
+                    type: 'point',
+                    scale: 'days',
+                    startDatetime: '2015-11-20 00:00',
+                    rows: 6,
+                    rangeAlign: 'left',
+                    range: 1,
+                    minuteInterval: 1,
+                    minGridPer: ab
+                });
+
+
+                $("#myTimeline").on("afterRender.timeline", function(){
+                    // usage bootstrap's popover
+                    $('.timeline-node').each(function(){
+                        if ( $(this).data('toggle') === 'popover' ) {
+                            $(this).attr( 'title', $(this).text() );
+                            $(this).popover({
+                                trigger: 'hover'
+                            });
+                        }
+                    });
+                });
+
+            });
+        </script>
+        
+    </body>
+</html>
