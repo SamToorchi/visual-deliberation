@@ -134,8 +134,9 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
+
         <!-- local scripts -->
-               <script>
+        <script>
 
             window.onload=Upload();
             /**  var file = "\\files\\telemetryData.csv"; **/
@@ -143,7 +144,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_13.csv";
+                var file = "content/article_2.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -197,7 +198,7 @@
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
@@ -210,57 +211,72 @@
 
 
             var ab;
-            ab=24; 
+            ab=2; 
+
+
 
 
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 $('.timeline-node.active').css("transform", "scale(1.5)");
+                $('.timeline-node.active').css("border-color", "blue");
 
+
+
+
+
+
+                function mark($node){
+
+
+                    if($node.length >=1){
+
+
+
+                        $.each($node, function(index, value){
+                            console.log(value);
+                            var i = $(value).attr('id').replace('evt-', '') ;
+                            console.log('nochmal');
+                            var $liste = $('.timeline-node[data-relay-before=' + i + ']');
+                            console.log('Länge der ersten Liste: ' + $liste.length);
+                            console.log($liste);
+                            /*$liste.addClass('active');*/
+                            $liste.css("transform", "scale(1.5)");
+                            $liste.css("border-color", "blue");
+                            $('.timeline-node').attr("data-relay-linecolor", "#3CCF70");
+                            mark($liste);
+                        })
+                    } 
+                }
 
                 function test ($node){
+
                     var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-                    var i = $node.data('relayBefore');
-                    console.log(i);
-                    var $liste = $('.timeline-node[data-relay-before=' + i + ']');
-                    console.log($('.timeline-node[data-relay-before=' + i + ']'));
-                    $liste.css("transform", "scale(1.5)");
-
-
-
                     if ( $node.data('relayBefore') > 0 ) {
                         var $beforeNode = $('#evt-' + $node.data('relayBefore'));
                         if ( $beforeNode.length > 0 ) {
                             $beforeNode.css("transform", "scale(1.5)");
-
+                            $beforeNode.css("border-color", "blue");
                             test($beforeNode);
                         }
                     }
 
-                    if ( $node.data('relayBefore') != undefined ) {
-                        if ( $node.data('relayBefore') > 0 ) {
-                            var $beforeNode = $('#evt-' + $node.data('relayBefore'));
-                            if ( $beforeNode.length > 0 ) {
-                                $beforeNode.css("transform", "scale(1.5)");
-
-                                test($beforeNode);
-                            }
-                        }
-                    }
                 };
 
                 test($('.timeline-node.active'));
+                mark($('.timeline-node.active'));
 
                 $("body").on('dblclick', function() {
                     $('.timeline-node').css("transform", "scale(1)");
+                    $('.timeline-node').css("border-color", "#942343");
+
                 });
             };
 
 
 
             $(function () {
-
 
                 $('#one').click(function() {
                     ab+=4;
