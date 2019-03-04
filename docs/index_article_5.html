@@ -22,13 +22,20 @@
     <body id="body">
         <div class="container-fluid">
 
-            <nav class="content-header">
+                        <nav class="content-header">
 
                 <ol class="breadcrumb">
+                    <!--
                     <li class="breadcrumb-item"><a href="https://github.com/ka215/jquery.timeline"><i class="fa fa-plug"></i> jQuery Timeline</a></li>
                     <li class="breadcrumb-item active"><a href="./index_article_2.html">secount interval</a></li>
                     <li class="breadcrumb-item"><a href="./index2.html"><i class="fa fa-check-square-o"></i> Point type</a></li>
-                    <li class="breadcrumb-item"><a href="./index3.html">Multi Languages</a></li>
+
+-->
+                    <li ><b>legend:</b></li>
+
+                    
+                    <li class="breadcrumb-item"><img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.43.29.png" width="20px" height="20px" /> relative publish date </li>
+                    <li class="breadcrumb-item"> <img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.44.08.png" width="20px" height="20px" /> absolute publish date </li>
                 </ol>
 
             </nav>
@@ -179,11 +186,11 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
@@ -254,7 +261,7 @@
 
                 $("body").on('dblclick', function() {
                     $('.timeline-node').css("transform", "scale(1)");
-                    $('.timeline-node').css("border-color", "#942343");
+                    $('.timeline-node').css("border-color", "#0B9C11");
 
                 });
             };

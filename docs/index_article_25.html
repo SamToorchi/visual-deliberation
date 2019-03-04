@@ -22,7 +22,7 @@
     <body id="body">
         <div class="container-fluid">
 
-                       <nav class="content-header">
+                      <nav class="content-header">
 
                 <ol class="breadcrumb">
                     <!--
@@ -126,8 +126,8 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
-
-        <!-- local scripts -->
+        
+                        <!-- local scripts -->
         <script>
 
             window.onload=Upload();
@@ -136,7 +136,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_4.csv";
+                var file = "content/article_25.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -203,7 +203,7 @@
 
 
             var ab;
-            ab=8; 
+            ab=4; 
 
 
 
@@ -288,9 +288,9 @@
                 $("#myTimeline").timeline({
                     type: 'point',
                     scale: 'days',
-                    startDatetime: '2015-11-20 00:00',
-                    rows: 4,
-                    rangeAlign: 'right',
+                    startDatetime: '2016-07-09 00:00',
+                    rows: 2,
+                    rangeAlign: 'center',
                     range: 1,
                     minuteInterval: 1,
                     minGridPer: ab
@@ -311,6 +311,6 @@
 
             });
         </script>
-
+        
     </body>
 </html>

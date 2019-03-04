@@ -126,8 +126,8 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
-
-        <!-- local scripts -->
+        
+                        <!-- local scripts -->
         <script>
 
             window.onload=Upload();
@@ -136,7 +136,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_4.csv";
+                var file = "content/article_21.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -186,11 +186,11 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
@@ -203,7 +203,7 @@
 
 
             var ab;
-            ab=8; 
+            ab=24; 
 
 
 
@@ -261,7 +261,7 @@
 
                 $("body").on('dblclick', function() {
                     $('.timeline-node').css("transform", "scale(1)");
-                    $('.timeline-node').css("border-color", "#0B9C11");
+                    $('.timeline-node').css("border-color", "#942343");
 
                 });
             };
@@ -288,9 +288,9 @@
                 $("#myTimeline").timeline({
                     type: 'point',
                     scale: 'days',
-                    startDatetime: '2015-11-20 00:00',
-                    rows: 4,
-                    rangeAlign: 'right',
+                    startDatetime: '2016-01-20 00:00',
+                    rows: 3,
+                    rangeAlign: 'left',
                     range: 1,
                     minuteInterval: 1,
                     minGridPer: ab
@@ -311,6 +311,6 @@
 
             });
         </script>
-
+        
     </body>
 </html>
