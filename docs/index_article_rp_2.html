@@ -25,12 +25,18 @@
             <nav class="content-header">
 
                 <ol class="breadcrumb">
-                   
+                    <!--
+<li class="breadcrumb-item"><a href="https://github.com/ka215/jquery.timeline"><i class="fa fa-plug"></i> jQuery Timeline</a></li>
+<li class="breadcrumb-item active"><a href="./index_article_2.html">secount interval</a></li>
+<li class="breadcrumb-item"><a href="./index2.html"><i class="fa fa-check-square-o"></i> Point type</a></li>
+
+-->
+                    <p style="font-size: 30px; position: absolute; right:150px; font-family: Times New Roman, Times, serif;"  >2016</p>
+                    <img src="imgs/rp.jpg" align="right" width="50" height="50" />
                     <li ><b>legend:</b></li>
 
-                    
-                    <li class="breadcrumb-item"><img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.43.29.png" width="20px" height="20px" /> relative publish date </li>
-                    <li class="breadcrumb-item"> <img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.44.08.png" width="20px" height="20px" /> absolute publish date </li>
+
+                     <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 26 </li>
                 </ol>
 
             </nav>
@@ -46,7 +52,6 @@
 
                     <div id="myTimeline">
                         <div class="timeline-events" id="demo" >
-
 
                         </div>
                     </div>
@@ -121,9 +126,8 @@
         <!-- Bootstrap 4.0.0-alpha.6 -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
-        <script src="js/timeline.js"></script>
-        
-        
+        <script src="js/timeline.min.js"></script>
+
         <!-- local scripts -->
         <script>
 
@@ -133,7 +137,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/article_1.csv";
+                var file = "content/rp.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -164,15 +168,13 @@
                     complete: function(results, file) {
                         console.log("Parsing complete:", results, file);
                         generateCode(results.data);
-
                     }
 
 
                 });
                 generateCode(dirtyNodeData);
+
             }
-
-
 
             function generateCode(dirtyNodeData){
 
@@ -183,16 +185,38 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else if (dirtyNodeData[i].beznr_komm == 19999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else if (dirtyNodeData[i].beznr_komm == 29999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else if (dirtyNodeData[i].beznr_komm == 39999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else if (dirtyNodeData[i].beznr_komm == 49999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                    }
+
+                    else if (dirtyNodeData[i].beznr_komm == 59999){
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + dirtyNodeData[i].color + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 
-                $('#htmlresults').val(generatedHTMLCode);
 
+
+
+                $('#htmlresults').val(generatedHTMLCode);
 
                 document.getElementById('demo').innerHTML = generatedHTMLCode;
             }
@@ -200,26 +224,19 @@
 
 
             var ab;
-            ab=24; 
-
-
+            ab=2; 
 
 
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
+                console.log($('.timeline-node.active'));
                 $('.timeline-node.active').css("transform", "scale(1.5)");
                 $('.timeline-node.active').css("border-color", "blue");
 
-                
-
-
-
-
                 function mark($node){
-
-
                     if($node.length >=1){
+
                         $.each($node, function(index, value){
                             console.log(value);
                             var i = $(value).attr('id').replace('evt-', '') ;
@@ -249,20 +266,16 @@
                     }
 
                 };
+                
+                
 
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
-                $("body").on('dblclick', function() {
-                    $('.timeline-node').css("transform", "scale(1)");
-                    $('.timeline-node').css("border-color", "#942343");
 
-                });
             };
-
-
-
-            $(function () {
+            
+            $(function (event) {
 
                 $('#one').click(function() {
                     ab+=4;
@@ -282,14 +295,57 @@
                 $("#myTimeline").timeline({
                     type: 'point',
                     scale: 'days',
-                    startDatetime: '2015-11-20 00:00',
-                    rows: 11,
-                    rangeAlign: '222',
-                    range: 1,
+                    startDatetime: '2016-07-09 00:00',
+                    rows: 2,
+                    rangeAlign: 'left',
+                    range: 2,
                     minuteInterval: 1,
                     minGridPer: ab
                 });
+                
+                $("body").on('dblclick', function() {
+                    console.log('double click geht');
+                    var $i = $('.timeline-node.active').data('relayBefore');
+                    
+                    $("#myTimeline").timeline('render', {rangeAlign:'current'});
 
+
+                    setTimeout(function(){ 
+                        
+                        console.log('yyyy' + $i);
+                        var targetId = '#evt-' + $i;
+                        console.log(targetId);
+                        var posX = $(targetId).offset().left;
+                        console.log('PosX: ' + posX);
+
+                        if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2100) ) {
+                            var mov = $(window).width() - $('.timeline-body').width() + 2200;
+                            console.log('mov: ' + mov);
+
+
+                            $('.timeline-body').animate({
+                                scrollLeft: mov }, 2000);
+
+                        }
+
+
+                        else{
+                            console.log('else!!!')
+                            var mov = posX - $('.timeline-body').width() / 2;
+
+                            $('.timeline-body').animate({
+                                scrollLeft: mov }, 2000);
+
+                        }
+
+                    }, 3000);
+
+
+
+                });
+
+
+                
 
                 $("#myTimeline").on("afterRender.timeline", function(){
                     // usage bootstrap's popover
@@ -305,5 +361,6 @@
 
             });
         </script>
+
     </body>
 </html>
