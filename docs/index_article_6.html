@@ -22,16 +22,16 @@
     <body id="body">
         <div class="container-fluid">
 
-                       <nav class="content-header">
+            <nav class="content-header">
 
                 <ol class="breadcrumb">
-                   <p style="font-size: 30px; position: absolute; right:200px; font-family: Times New Roman, Times, serif; color: #f04d3d; text-transform: uppercase; "  >relative publish time</p>
+                    <p style="font-size: 30px; position: absolute; right:200px; font-family: Times New Roman, Times, serif; color: #f04d3d; text-transform: uppercase; "  >relative publish time</p>
                     <img src="imgs/sz.jpg" height="50" width="150" align="right" />
                     <li ><b>legend:</b></li>
 
-                    
+
                     <li class="breadcrumb-item"><img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.43.29.png" width="20px" height="20px" /> article 6 </li>
-                    
+
                 </ol>
 
             </nav>
@@ -47,7 +47,7 @@
 
                     <div id="myTimeline">
                         <div class="timeline-events" id="demo" >
-                            
+
                         </div>
                     </div>
                     <div id="demo"></div>
@@ -122,7 +122,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
-        
+
         <!-- local scripts -->
         <script>
 
@@ -267,8 +267,58 @@
             $(function () {
 
                 $('#one').click(function() {
-                    ab+=4;
-                    $("#myTimeline").timeline('render', {minGridPer:ab});
+                    console.log('double click geht');
+                    var $i = $('.timeline-node.active');
+
+
+                    if($i == undefined){
+                        alert('please select a circle...');
+                    }
+
+                    else if($i != undefined){
+                        ab+=4;
+                        $("#myTimeline").timeline('render', {minGridPer:ab});
+
+                        console.log('double click geht');
+                        var $i = $('.timeline-node.active').data('relayBefore');
+
+                        $("#myTimeline").timeline('render', {rangeAlign:'current'});
+
+
+                        setTimeout(function(){ 
+
+                            console.log('yyyy' + $i);
+                            var targetId = '#evt-' + $i;
+                            console.log(targetId);
+                            var posX = $(targetId).offset().left;
+                            console.log('PosX: ' + posX);
+
+                            if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2500) ) {
+                                var mov = $(window).width() - $('.timeline-body').width() + 2200;
+                                console.log('mov: ' + mov);
+
+
+                                $('.timeline-body').animate({
+                                    scrollLeft: mov }, 2000);
+
+                            }
+
+
+                            else{
+                                console.log('else!!!')
+                                var mov = posX - $('.timeline-body').width() / 2;
+
+                                $('.timeline-body').animate({
+                                    scrollLeft: mov }, 2000);
+
+                            }
+
+                        }, 3000);
+                    }
+
+
+
+
 
                 });
 
@@ -308,6 +358,6 @@
             });
         </script>
 
-        
+
     </body>
 </html>

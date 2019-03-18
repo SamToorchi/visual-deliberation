@@ -12,16 +12,12 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!-- jQuery Timeline -->
         <link href="./css/timeline.min.css?ver=1.0.5" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+        <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     </head>
-    
+
     <body>
-        <iframe src="index_article_zeitonline.html" width="100%" height="1100px"></iframe>
+        <iframe id="iframe_one" name="iframe_one" src="index_article_zeitonline.html" width="100%" height="1100px" style=".card-block{display: none;}"></iframe>
         <iframe src="index_article_weltonline.html" width="100%" height="750px"></iframe>
         <iframe src="index_article_6.html" width="100%" height="750px"></iframe>
         <iframe src="index_article_focusonline_1.html" width="100%" height="600px"></iframe>
@@ -35,6 +31,14 @@
         <iframe src="index_article_rp_1.html" width="100%" height="800px"></iframe>
         <iframe src="index_article_rp_2.html" width="100%" height="600px"></iframe>
         <iframe src="index_article_rp_3.html" width="100%" height="600px"></iframe>
-    
+
     </body>
+    <script>
+        setTimeout(function(){
+            var $head = $("iframe").contents().find("head"); 
+            var url = "css/hidden.css";
+            $head.append($("<link/>", { rel: "stylesheet", href: url, type: "text/css" } ));
+            console.log('AUSGABE ERFOLGT!')
+        }, 10000);
+    </script>
 </html>

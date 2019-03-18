@@ -304,7 +304,7 @@
                 
                 $("body").on('dblclick', function() {
                     console.log('double click geht');
-                    var $i = $('.timeline-node.active').data('relayBefore');
+                    var $i = $('.timeline-node.active');
                     
                     $("#myTimeline").timeline('render', {rangeAlign:'current'});
 
