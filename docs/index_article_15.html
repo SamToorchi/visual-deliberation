@@ -125,7 +125,7 @@
         <!-- Bootstrap 4.0.0-alpha.6 -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
-        <script src="js/timeline.js"></script>
+        <script src="js/timeline.min.js"></script>
         
                         <!-- local scripts -->
         <script>
@@ -186,11 +186,11 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#0B9C11\', callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before:"+ dirtyNodeData[i].beznr_komm   + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
                     }
                 }
 

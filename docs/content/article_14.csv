@@ -149,7 +149,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;quality
 14;Manuela Schmitd;143;2;138;138;2015-11-20 02:57;0
 14;paulina schmidt;144;2;138;138;2015-11-20 02:58;21
 14;Gerhard Hellmund;145;1;145;9999;2015-11-20 02:59;7
-14;Anonym;146;3;147;147;2015-11-20 03:00;-6
+14;Anonym;146;3;147;147;2015-11-20 03:03;-6
 14;Bernhard Huber;147;2;145;145;2015-11-20 03:01;3
 14;Anonym;148;2;145;145;2015-11-20 03:02;8
 14;Frank Gleiser;149;2;145;145;2015-11-20 03:03;0
@@ -207,9 +207,9 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;quality
 14;Frank Schauer;201;1;201;9999;2015-11-20 03:55;7
 14;Christine Burbaum;202;2;201;201;2015-11-20 03:56;14
 14;Kevin Schneider;203;3;207;202;2015-11-20 03:57;-4
-14;Christine Burbaum;204;2;206;206;2015-11-20 03:58;-6
+14;Christine Burbaum;204;1;206;206;2015-11-20 03:58;-6
 14;Sybille Günzel;205;2;205;205;2015-11-20 03:59;7
-14;Lisa Gribchen;206;2;205;205;2015-11-20 04:00;7
+14;Lisa Gribchen;206;3;205;205;2015-11-20 04:00;7
 14;Christine Burbaum;207;4;203;203;2015-11-20 04:01;0
 14;frieder weber;208;1;208;9999;2015-11-20 04:02;7
 14;Jürgen Lindner;209;1;209;9999;2015-11-20 04:03;7
