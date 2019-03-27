@@ -1,13 +1,13 @@
-Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;text
-2;Albert Butz;1;1;1;9999;2015-11-20 21:33;
-2;Tom Franke;2;2;1;1;2015-11-20 21:33;
-2;Ralf Goldmann;3;1;3;9999;2015-11-20 20:30;
-2;frieder weber;4;1;4;9999;2015-11-20 19:31;
-2;Ingrid Michler;5;1;5;9999;2015-11-20 16:51;
-2;Peter Krämer;6;2;5;5;2015-11-20 16:51;
-2;herbert hämel;7;1;7;9999;2015-11-20 15:57;
-2;GABRIELE BLUM;8;2;7;7;2015-11-20 15:57;
-2;Harald Heinrichs;9;1;9;9999;2015-11-20 15:56;
-2;Dieter Schmeer;10;1;10;9999;2015-11-20 01:00;
-2;Bernd König;11;1;11;9999;2015-11-20 15:38;
-2;Marianne Glockner;12;;12;9999;2015-11-20 15:38;
+Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;quality
+2;Albert Butz;1;1;1;9999;2015-11-20 21:33;21
+2;Tom Franke;2;2;1;1;2015-11-20 21:33;0
+2;Ralf Goldmann;3;1;3;9999;2015-11-20 20:30;28
+2;frieder weber;4;1;4;9999;2015-11-20 19:31;7
+2;Ingrid Michler;5;1;5;9999;2015-11-20 16:51;7
+2;Peter Krämer;6;2;5;5;2015-11-20 16:51;0
+2;herbert hämel;7;1;7;9999;2015-11-20 15:57;7
+2;GABRIELE BLUM;8;2;7;7;2015-11-20 15:57;1
+2;Harald Heinrichs;9;1;9;9999;2015-11-20 15:56;7
+2;Dieter Schmeer;10;1;10;9999;2015-11-20 01:00;7
+2;Bernd König;11;1;11;9999;2015-11-20 15:38;7
+2;Marianne Glockner;12;;12;9999;2015-11-20 15:38;7
