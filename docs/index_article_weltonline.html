@@ -35,13 +35,18 @@
                     <img src="imgs/weltonline.png" width="100" height="50" align="right"/>
                     <li ><b>legend:</b></li>
 
-
+<!--
                     <li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 8 </li>
                     <li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 12 </li>
                     <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 13 </li>
                     <li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 19 </li>
                     <li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 20 </li>
                     <li class="breadcrumb-item"> <img src="imgs/blue.png" width="20px" height="20px" /> article 28 </li>
+
+-->
+                    <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
+                    <li style="position:relative; left:0%;">low deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
+                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">high deliberation quality</div></li>
                 </ol>
 
             </nav>
@@ -131,7 +136,7 @@
         <!-- Bootstrap 4.0.0-alpha.6 -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
-        <script src="js/timeline.min.js"></script>
+        <script src="js/timeline.js"></script>
 
         <!-- local scripts -->
         <script>
@@ -190,31 +195,32 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 888888} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 19999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 121212} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 29999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 131313} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 39999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 191919} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 49999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 202020} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 59999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 282828} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
                     }
 
+
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + dirtyNodeData[i].color + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
                 }
 
@@ -229,7 +235,7 @@
 
 
             var ab;
-            ab=8; 
+            ab=2; 
 
 
             $.openMyEvent = function(event) {
@@ -271,101 +277,166 @@
                     }
 
                 };
-                
-                
+
+
 
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
 
             };
-            
+
             $(function (event) {
 
                 $('#one').click(function() {
-                    ab+=4;
+                    ab+=2;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
-
-                });
-
-
-                $('#two').click(function() {
-                    ab-=4;
-                    $("#myTimeline").timeline('render', {minGridPer:ab});
-
-                });
-
-
-
-                $("#myTimeline").timeline({
-                    type: 'point',
-                    scale: 'days',
-                    startDatetime: '2015-11-20 00:00',
-                    rows: 7,
-                    rangeAlign: 'left',
-                    range: 1,
-                    minuteInterval: 1,
-                    minGridPer: ab
-                });
-                
-                $("body").on('dblclick', function() {
-                    console.log('double click geht');
-                    var $i = $('.timeline-node.active');
-                    
-                    $("#myTimeline").timeline('render', {rangeAlign:'current'});
-
-
-                    setTimeout(function(){ 
-                        
-                        console.log('yyyy' + $i);
-                        var targetId = '#evt-' + $i;
-                        console.log(targetId);
-                        var posX = $(targetId).offset().left;
-                        console.log('PosX: ' + posX);
-
-                        if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2100) ) {
-                            var mov = $(window).width() - $('.timeline-body').width() + 2200;
-                            console.log('mov: ' + mov);
-
-
-                            $('.timeline-body').animate({
-                                scrollLeft: mov }, 2000);
-
-                        }
-
-
-                        else{
-                            console.log('else!!!')
-                            var mov = posX - $('.timeline-body').width() / 2;
-
-                            $('.timeline-body').animate({
-                                scrollLeft: mov }, 2000);
-
-                        }
-
-                    }, 3000);
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                        xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                        xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                        xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                        xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                        xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                        document.getElementById('evt-888888').innerHTML = x;
+                        document.getElementById('evt-121212').innerHTML = xx;
+                        document.getElementById('evt-131313').innerHTML = xxx;
+                        document.getElementById('evt-191919').innerHTML = xxxx;
+                        document.getElementById('evt-202020').innerHTML = xxxxx;
+                        document.getElementById('evt-282828').innerHTML = xxxxxx;
+                        });
 
 
 
-                });
+
+                                        });
 
 
-                
-
-                $("#myTimeline").on("afterRender.timeline", function(){
-                    // usage bootstrap's popover
-                    $('.timeline-node').each(function(){
-                        if ( $(this).data('toggle') === 'popover' ) {
-                            $(this).attr( 'title', $(this).text() );
-                            $(this).popover({
-                                trigger: 'hover'
+                    $('#two').click(function() {
+                        ab-=2;
+                        $("#myTimeline").timeline('render', {minGridPer:ab});
+                        $("#myTimeline").on("afterRender.timeline", function(){
+                            x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                            xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                            xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                            xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                            xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                            xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                            document.getElementById('evt-888888').innerHTML = x;
+                            document.getElementById('evt-121212').innerHTML = xx;
+                            document.getElementById('evt-131313').innerHTML = xxx;
+                            document.getElementById('evt-191919').innerHTML = xxxx;
+                            document.getElementById('evt-202020').innerHTML = xxxxx;
+                            document.getElementById('evt-282828').innerHTML = xxxxxx;
                             });
-                        }
-                    });
-                });
 
-            });
+
+                                            });
+
+
+
+                        $("#myTimeline").timeline({
+                            type: 'point',
+                            scale: 'days',
+                            startDatetime: '2015-11-20 00:00',
+                            rows: 9,
+                            rangeAlign: 'left',
+                            range: 1,
+                            minuteInterval: 1,
+                            minGridPer: ab
+                        });
+
+                        $("body").on('dblclick', function() {
+                            console.log('double click geht');
+                            var $i = $('.timeline-node.active');
+
+                            $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                            $("#myTimeline").on("afterRender.timeline", function(){
+                                x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                                xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                                xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                                xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                                xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                                xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                                document.getElementById('evt-888888').innerHTML = x;
+                                document.getElementById('evt-121212').innerHTML = xx;
+                                document.getElementById('evt-131313').innerHTML = xxx;
+                                document.getElementById('evt-191919').innerHTML = xxxx;
+                                document.getElementById('evt-202020').innerHTML = xxxxx;
+                                document.getElementById('evt-282828').innerHTML = xxxxxx;
+                                });
+
+
+                                                setTimeout(function(){ 
+
+                                console.log('yyyy' + $i);
+                                var targetId = '#evt-' + $i;
+                                console.log(targetId);
+                                var posX = $(targetId).offset().left;
+                                console.log('PosX: ' + posX);
+
+                                if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2100) ) {
+                                    var mov = $(window).width() - $('.timeline-body').width() + 2200;
+                                    console.log('mov: ' + mov);
+
+
+                                    $('.timeline-body').animate({
+                                        scrollLeft: mov }, 2000);
+
+                                }
+
+
+                                else{
+                                    console.log('else!!!')
+                                    var mov = posX - $('.timeline-body').width() / 2;
+
+                                    $('.timeline-body').animate({
+                                        scrollLeft: mov }, 2000);
+
+                                }
+
+                            }, 3000);
+
+
+
+                        });
+
+
+
+
+                        $("#myTimeline").on("afterRender.timeline", function(){
+                            x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                            xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                            xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                            xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                            xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                            xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                            document.getElementById('evt-888888').innerHTML = x;
+                            document.getElementById('evt-121212').innerHTML = xx;
+                            document.getElementById('evt-131313').innerHTML = xxx;
+                            document.getElementById('evt-191919').innerHTML = xxxx;
+                            document.getElementById('evt-202020').innerHTML = xxxxx;
+                            document.getElementById('evt-282828').innerHTML = xxxxxx;
+
+
+                            // usage bootstrap's popover
+                            $('.timeline-node').each(function(){
+                                if ( $(this).data('toggle') === 'popover' ) {
+                                    $(this).attr( 'title', $(this).text() );
+                                    $(this).popover({
+                                        trigger: 'hover'
+                                    });
+                                }
+                            });
+                        });
+
+                    });
         </script>
+        <style>
+            span:hover{
+                transform: translateY(-90%) scale(1.07);
+            }
+        </style>
 
     </body>
 </html>

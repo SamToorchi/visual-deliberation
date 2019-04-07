@@ -29,11 +29,9 @@
                     <img src="imgs/sz.jpg" height="50" width="150" align="right" />
                     <li ><b>legend:</b></li>
 
-
-                    <li class="breadcrumb-item"><img src="imgs/Bildschirmfoto%202019-03-04%20um%2015.43.29.png" width="20px" height="20px" /> article 6 </li>
-                    <li><br><br><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
-                   <li style="position:relative; left:0%;">high deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
-                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">low deliberation quality</div></li>
+                    <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
+                    <li style="position:relative; left:0%;">low deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
+                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">high deliberation quality</div></li>
                 </ol>
 
             </nav>
@@ -182,14 +180,14 @@
 
 
                 for (i = 0; i<dirtyNodeData.length; i++){
-
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 666666} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                    }
+                    else {
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
-                    else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\', callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before:"+ dirtyNodeData[i].beznr_komm   + "}, row:" + dirtyNodeData[i].row + "}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: "+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
-                    }
+
                 }
 
                 $('#htmlresults').val(generatedHTMLCode);
@@ -201,7 +199,7 @@
 
 
             var ab;
-            ab=16; 
+            ab=5; 
 
 
 
@@ -259,7 +257,7 @@
 
                 $("body").on('dblclick', function() {
                     $('.timeline-node').css("transform", "scale(1)");
-                    $('.timeline-node').css("border-color", "#942343");
+                    $('.timeline-node').css("border-color", "#B2B2B0");
 
                 });
             };
@@ -285,6 +283,10 @@
                         var $i = $('.timeline-node.active').data('relayBefore');
 
                         $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                        $("#myTimeline").on("afterRender.timeline", function(){
+                            x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 6: Merkel praises the CSU - and lets it flash off</span>');
+                            document.getElementById('evt-666666').innerHTML = x;
+                        });
 
 
                         setTimeout(function(){ 
@@ -328,6 +330,10 @@
                 $('#two').click(function() {
                     ab-=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 6: Merkel praises the CSU - and lets it flash off</span>');
+                        document.getElementById('evt-666666').innerHTML = x;
+                    });
 
                 });
 
@@ -337,7 +343,7 @@
                     type: 'point',
                     scale: 'days',
                     startDatetime: '2015-11-20 00:00',
-                    rows: 8,
+                    rows: 10,
                     rangeAlign: 'left',
                     range: 1,
                     minuteInterval: 1,
@@ -346,6 +352,9 @@
 
 
                 $("#myTimeline").on("afterRender.timeline", function(){
+                    x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 6: Merkel praises the CSU - and lets it flash off</span>');
+                    document.getElementById('evt-666666').innerHTML = x;
+
                     // usage bootstrap's popover
                     $('.timeline-node').each(function(){
                         if ( $(this).data('toggle') === 'popover' ) {
