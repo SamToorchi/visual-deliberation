@@ -31,17 +31,21 @@
 <li class="breadcrumb-item"><a href="./index2.html"><i class="fa fa-check-square-o"></i> Point type</a></li>
 
 -->
-                    
+
                     <img src="imgs/tagesspiegel.jpg" width="110" height="50" align="right" />
                     <li ><b>legend:</b></li>
 
+                    <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
+                    <li style="position:relative; left:0%;">low deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
+                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">high deliberation quality</div></li>
 
-                     <li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 15 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 22 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 25 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 29 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 30 </li>
-        
+                    <!--
+<li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 15 </li>
+<li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 22 </li>
+<li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 25 </li>
+<li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 29 </li>
+<li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 30 </li>
+-->
                 </ol>
 
             </nav>
@@ -142,7 +146,7 @@
                 var dirtyNodeData = [];
                 var data;
                 // var file = evt.target.files[0];
-                var file = "content/focusonline.csv";
+                var file = "content/tagesspiegel.csv";
 
                 Papa.parse(file, {
                     //makes sure the first line is interpreted as a header, not data
@@ -190,32 +194,29 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 151515} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 19999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 2222222} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 29999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 252525} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 39999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 292929} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 49999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
-                    }
-
-                    else if (dirtyNodeData[i].beznr_komm == 59999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 303030} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + dirtyNodeData[i].color + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
+
                 }
 
 
@@ -229,15 +230,13 @@
 
 
             var ab;
-            ab=2; 
+            ab=1; 
 
 
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
-                $('.timeline-node.active').css("transform", "scale(1.5)");
-                $('.timeline-node.active').css("border-color", "blue");
 
                 function mark($node){
                     if($node.length >=1){
@@ -271,20 +270,46 @@
                     }
 
                 };
-                
-                
 
+                function reset(){    
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
+
+                }
+
+
+                reset();
+                $('.timeline-node.active').css("border-color", "blue");
+                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
+                var sel = $('.timeline-node.active').attr('title');
+                var myCustomData = sel;
+                var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                window.parent.document.dispatchEvent(event);
+
 
             };
-            
+
             $(function (event) {
 
                 $('#one').click(function() {
                     ab+=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 300px; top: -30px; padding: 2px;">Article 15: CSU insists on upper limit</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 510px; top: -40px; padding: 2px;">Article 22: The next argument between the Chancellor and the CSU</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 320px; top: -30px; padding: 2px;">Article 25: CSU now wants no upper limit</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 370px; top: -30px; padding: 2px;">Article 29: Horst Seehofer guarantees upper limit</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 30: Seehofer makes refugee upper limit a condition for coalition</span>');
+
+                        document.getElementById('evt-151515').innerHTML = x;
+                        document.getElementById('evt-2222222').innerHTML = xx;
+                        document.getElementById('evt-252525').innerHTML = xxx;
+                        document.getElementById('evt-292929').innerHTML = xxxx;
+                        document.getElementById('evt-303030').innerHTML = xxxxx;
+                    });
 
                 });
 
@@ -292,6 +317,19 @@
                 $('#two').click(function() {
                     ab-=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 300px; top: -30px; padding: 2px;">Article 15: CSU insists on upper limit</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 510px; top: -40px; padding: 2px;">Article 22: The next argument between the Chancellor and the CSU</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 320px; top: -30px; padding: 2px;">Article 25: CSU now wants no upper limit</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 370px; top: -30px; padding: 2px;">Article 29: Horst Seehofer guarantees upper limit</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 30: Seehofer makes refugee upper limit a condition for coalition</span>');
+
+                        document.getElementById('evt-151515').innerHTML = x;
+                        document.getElementById('evt-2222222').innerHTML = xx;
+                        document.getElementById('evt-252525').innerHTML = xxx;
+                        document.getElementById('evt-292929').innerHTML = xxxx;
+                        document.getElementById('evt-303030').innerHTML = xxxxx;
+                    });
 
                 });
 
@@ -299,24 +337,37 @@
 
                 $("#myTimeline").timeline({
                     type: 'point',
-                    scale: 'days',
-                    startDatetime: '2016-01-03 00:00',
-                    rows: 6,
+                    scale: 'years',
+                    startDatetime: '2015-12-30 00:00',
+                    rows: 15,
                     rangeAlign: 'left',
-                    range: 329,
+                    range: 2,
                     minuteInterval: 1,
                     minGridPer: ab
                 });
-                
+
                 $("body").on('dblclick', function() {
                     console.log('double click geht');
                     var $i = $('.timeline-node.active');
-                    
+
                     $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 300px; top: -30px; padding: 2px;">Article 15: CSU insists on upper limit</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 510px; top: -40px; padding: 2px;">Article 22: The next argument between the Chancellor and the CSU</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 320px; top: -30px; padding: 2px;">Article 25: CSU now wants no upper limit</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 370px; top: -30px; padding: 2px;">Article 29: Horst Seehofer guarantees upper limit</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 30: Seehofer makes refugee upper limit a condition for coalition</span>');
+
+                        document.getElementById('evt-151515').innerHTML = x;
+                        document.getElementById('evt-2222222').innerHTML = xx;
+                        document.getElementById('evt-252525').innerHTML = xxx;
+                        document.getElementById('evt-292929').innerHTML = xxxx;
+                        document.getElementById('evt-303030').innerHTML = xxxxx;
+                    });
 
 
                     setTimeout(function(){ 
-                        
+
                         console.log('yyyy' + $i);
                         var targetId = '#evt-' + $i;
                         console.log(targetId);
@@ -350,9 +401,25 @@
                 });
 
 
-                
+
 
                 $("#myTimeline").on("afterRender.timeline", function(){
+                    x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 300px; top: -30px; padding: 2px;">Article 15: CSU insists on upper limit</span>');
+                    xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 510px; top: -40px; padding: 2px;">Article 22: The next argument between the Chancellor and the CSU</span>');
+                    xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 320px; top: -30px; padding: 2px;">Article 25: CSU now wants no upper limit</span>');
+                    xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 370px; top: -30px; padding: 2px;">Article 29: Horst Seehofer guarantees upper limit</span>');
+                    xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 30: Seehofer makes refugee upper limit a condition for coalition</span>');
+
+                    document.getElementById('evt-151515').innerHTML = x;
+                    document.getElementById('evt-2222222').innerHTML = xx;
+                    document.getElementById('evt-252525').innerHTML = xxx;
+                    document.getElementById('evt-292929').innerHTML = xxxx;
+                    document.getElementById('evt-303030').innerHTML = xxxxx;
+
+
+
+
+
                     // usage bootstrap's popover
                     $('.timeline-node').each(function(){
                         if ( $(this).data('toggle') === 'popover' ) {

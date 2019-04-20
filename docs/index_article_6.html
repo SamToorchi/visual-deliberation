@@ -207,12 +207,6 @@
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
-                $('.timeline-node.active').css("transform", "scale(1.5)");
-                $('.timeline-node.active').css("border-color", "blue");
-
-
-
-
 
 
                 function mark($node){
@@ -252,8 +246,23 @@
 
                 };
 
+                function reset(){    
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
+
+                }
+
+
+                reset();
+                $('.timeline-node.active').css("border-color", "blue");
+                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
+
+                var sel = $('.timeline-node.active').attr('title');
+                var myCustomData = sel;
+                var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                window.parent.document.dispatchEvent(event);
 
                 $("body").on('dblclick', function() {
                     $('.timeline-node').css("transform", "scale(1)");

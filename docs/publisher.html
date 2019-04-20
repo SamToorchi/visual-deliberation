@@ -18,16 +18,34 @@
 <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+        <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     </head>
-    
+
     <body>
-        <iframe src="index_article_zeitonline.html" width="100%" height="1100px"></iframe>
+        <iframe id="iframe_one" name="iframe_one" src="index_article_zeitonline.html" width="100%" height="1100px" style=".card-block{display: none;}"></iframe>
         <iframe src="index_article_weltonline.html" width="100%" height="800px"></iframe>
-        <iframe src="index_article_6.html" width="100%" height="750px"></iframe>
-        <iframe src="index_article_focusonline.html" width="100%" height="700px"></iframe>
-        <iframe src="index_article_tagesspiegel.html" width="100%" height="700px"></iframe>
-        <iframe src="index_article_spiegelonline.html" width="100%" height="1100px"></iframe>
-        <iframe src="index_article_rp.html" width="100%" height="1000px"></iframe>
-    
+        <iframe src="index_article_6.html" width="100%" height="800px"></iframe>
+        <iframe src="index_article_focusonline.html" width="100%" height="640px"></iframe>
+        <iframe src="index_article_tagesspiegel.html" width="100%" height="950px"></iframe>
+        <iframe src="index_article_spiegelonline.html" width="100%" height="900px"></iframe>
+        <iframe src="index_article_rp.html" width="100%" height="700px"></iframe>
+
     </body>
+    <script>
+        window.document.addEventListener('ukeysent', handleEvent, false)
+        function handleEvent(e) {
+            console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
+        }
+
+        setTimeout(function(){
+            var $head = $("iframe").contents().find("head"); 
+            var url = "css/hidden.css";
+            $head.append($("<link/>", { rel: "stylesheet", href: url, type: "text/css" } ));
+            console.log('AUSGABE ERFOLGT!');
+        }, 10000);
+        handleEvent(e);
+
+
+
+    </script>
 </html>

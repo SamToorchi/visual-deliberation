@@ -34,11 +34,15 @@
                     <img src="imgs/spiegelonline.jpg" width="250" height="50" align="right" />
                     <li ><b>legend:</b></li>
 
+                    <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
+                    <li style="position:relative; left:0%;">low deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
+                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">high deliberation quality</div></li>
 
-                     <li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 4 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 5 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 31 </li>
-  
+                    <!--
+<li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 4 </li>
+<li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 5 </li>
+<li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 31 </li>
+-->
                 </ol>
 
             </nav>
@@ -187,31 +191,19 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 444444} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 19999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 555555} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 29999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
-                    }
-
-                    else if (dirtyNodeData[i].beznr_komm == 39999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
-                    }
-
-                    else if (dirtyNodeData[i].beznr_komm == 49999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12 }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
-                    }
-
-                    else if (dirtyNodeData[i].beznr_komm == 59999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:1, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + dirtyNodeData[i].color + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png' }\">" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 313131} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + dirtyNodeData[i].color + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].Gesamtnr  + " from the user: " + dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
                 }
 
@@ -226,15 +218,13 @@
 
 
             var ab;
-            ab=2; 
+            ab=1; 
 
 
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
-                $('.timeline-node.active').css("transform", "scale(1.5)");
-                $('.timeline-node.active').css("border-color", "blue");
 
                 function mark($node){
                     if($node.length >=1){
@@ -268,20 +258,45 @@
                     }
 
                 };
-                
-                
 
+
+
+                function reset(){    
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
+
+                }
+
+
+                reset();
+                $('.timeline-node.active').css("border-color", "blue");
+                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
+                var sel = $('.timeline-node.active').attr('title');
+                var myCustomData = sel;
+                var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                window.parent.document.dispatchEvent(event);
+
 
             };
-            
+
             $(function (event) {
 
                 $('#one').click(function() {
                     ab+=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 580px; top: -30px; padding: 2px;">Article 4: Merkel at the CSU party congress: Who is actually the boss here?</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 650px; top: -40px; padding: 2px;">Article 5: Merkel on CSU party congress: "Foreclosure and idleness are no solutions"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 260px; top: -30px; padding: 2px;">Article 31: Upper limit or nothing</span>');
+
+
+                        document.getElementById('evt-444444').innerHTML = x;
+                        document.getElementById('evt-555555').innerHTML = xx;
+                        document.getElementById('evt-313131').innerHTML = xxx;
+                    });
 
                 });
 
@@ -289,6 +304,16 @@
                 $('#two').click(function() {
                     ab-=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 580px; top: -30px; padding: 2px;">Article 4: Merkel at the CSU party congress: Who is actually the boss here?</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 650px; top: -40px; padding: 2px;">Article 5: Merkel on CSU party congress: "Foreclosure and idleness are no solutions"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 260px; top: -30px; padding: 2px;">Article 31: Upper limit or nothing</span>');
+
+
+                        document.getElementById('evt-444444').innerHTML = x;
+                        document.getElementById('evt-555555').innerHTML = xx;
+                        document.getElementById('evt-313131').innerHTML = xxx;
+                    });
 
                 });
 
@@ -296,24 +321,34 @@
 
                 $("#myTimeline").timeline({
                     type: 'point',
-                    scale: 'days',
+                    scale: 'years',
                     startDatetime: '2015-11-20 00:00',
                     rows: 13,
                     rangeAlign: 'left',
-                    range: 372,
+                    range: 2,
                     minuteInterval: 1,
                     minGridPer: ab
                 });
-                
+
                 $("body").on('dblclick', function() {
                     console.log('double click geht');
                     var $i = $('.timeline-node.active');
-                    
+
                     $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 580px; top: -30px; padding: 2px;">Article 4: Merkel at the CSU party congress: Who is actually the boss here?</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 650px; top: -40px; padding: 2px;">Article 5: Merkel on CSU party congress: "Foreclosure and idleness are no solutions"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 260px; top: -30px; padding: 2px;">Article 31: Upper limit or nothing</span>');
+
+
+                        document.getElementById('evt-444444').innerHTML = x;
+                        document.getElementById('evt-555555').innerHTML = xx;
+                        document.getElementById('evt-313131').innerHTML = xxx;
+                    });
 
 
                     setTimeout(function(){ 
-                        
+
                         console.log('yyyy' + $i);
                         var targetId = '#evt-' + $i;
                         console.log(targetId);
@@ -347,9 +382,20 @@
                 });
 
 
-                
+
 
                 $("#myTimeline").on("afterRender.timeline", function(){
+                    x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 580px; top: -30px; padding: 2px;">Article 4: Merkel at the CSU party congress: Who is actually the boss here?</span>');
+                    xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 650px; top: -40px; padding: 2px;">Article 5: Merkel on CSU party congress: "Foreclosure and idleness are no solutions"</span>');
+                    xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 260px; top: -30px; padding: 2px;">Article 31: Upper limit or nothing</span>');
+
+
+                    document.getElementById('evt-444444').innerHTML = x;
+                    document.getElementById('evt-555555').innerHTML = xx;
+                    document.getElementById('evt-313131').innerHTML = xxx;
+
+
+
                     // usage bootstrap's popover
                     $('.timeline-node').each(function(){
                         if ( $(this).data('toggle') === 'popover' ) {

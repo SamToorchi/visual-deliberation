@@ -29,13 +29,20 @@
                     <img src="imgs/focusonline.jpg" width="90" height="50" align="right" />
                     <li ><b>legend:</b></li>
 
-                    <li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 2 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 3 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 9 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 14 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 21 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/blue.png" width="20px" height="20px" /> article 24 </li>
-                    
+                    <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
+                    <li style="position:relative; left:0%;">low deliberation quality<div style="position: absolute;left:27.5%; margin-top:-1.5%;">neutral</div></li> 
+                    <li><div style="position: absolute; margin-top:-1.9%; right:0%; left:90%;">high deliberation quality</div></li>
+
+                    <!--
+<li ><b>legend:</b></li>
+
+<li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 2 </li>
+<li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 3 </li>
+<li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 9 </li>
+<li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 14 </li>
+<li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 21 </li>
+<li class="breadcrumb-item"> <img src="imgs/blue.png" width="20px" height="20px" /> article 24 </li>
+-->
                 </ol>
 
             </nav>
@@ -183,7 +190,7 @@
 
                 for (i = 0; i<dirtyNodeData.length; i++){
 
-  if (dirtyNodeData[i].beznr_komm == 9999){
+                    if (dirtyNodeData[i].beznr_komm == 9999){
                         generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 222222} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
@@ -231,8 +238,7 @@
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
-                $('.timeline-node.active').css("transform", "scale(1.5)");
-                $('.timeline-node.active').css("border-color", "blue");
+
 
                 function mark($node){
                     if($node.length >=1){
@@ -266,20 +272,50 @@
                     }
 
                 };
-                
-                
 
+
+                function reset(){    
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
+
+                }
+
+
+                reset();
+                $('.timeline-node.active').css("border-color", "blue");
+                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
+                var sel = $('.timeline-node.active').attr('title');
+                var myCustomData = sel;
+                var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                window.parent.document.dispatchEvent(event);
+
 
             };
-            
+
             $(function (event) {
 
                 $('#one').click(function() {
                     ab+=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 2: CSU adopts lead motion on refugee ceiling</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -20px; padding: 2px;">Article 3: Seehofer after attack on Merkel: There is "no break"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 9: Seehofer calls for an upper limit of "maximum 200,000 refugees" per year</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 14: The next provocation from Bavaria: Why Seehofer Merkel shows again</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 490px; top: -30px; padding: 2px;">Article 21: Angry CSU wants to change course in refugee policy</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 24: CSU Vice: Upper limit for refugees become redundant</span>');
+
+                        document.getElementById('evt-222222').innerHTML = x;
+                        document.getElementById('evt-333333').innerHTML = xx;
+                        document.getElementById('evt-999999').innerHTML = xxx;
+                        document.getElementById('evt-141414').innerHTML = xxxx;
+                        document.getElementById('evt-212121').innerHTML = xxxxx;
+                        document.getElementById('evt-242424').innerHTML = xxxxxx;
+                    });
 
                 });
 
@@ -287,6 +323,21 @@
                 $('#two').click(function() {
                     ab-=4;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 2: CSU adopts lead motion on refugee ceiling</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -20px; padding: 2px;">Article 3: Seehofer after attack on Merkel: There is "no break"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 9: Seehofer calls for an upper limit of "maximum 200,000 refugees" per year</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 14: The next provocation from Bavaria: Why Seehofer Merkel shows again</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 490px; top: -30px; padding: 2px;">Article 21: Angry CSU wants to change course in refugee policy</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 24: CSU Vice: Upper limit for refugees become redundant</span>');
+
+                        document.getElementById('evt-222222').innerHTML = x;
+                        document.getElementById('evt-333333').innerHTML = xx;
+                        document.getElementById('evt-999999').innerHTML = xxx;
+                        document.getElementById('evt-141414').innerHTML = xxxx;
+                        document.getElementById('evt-212121').innerHTML = xxxxx;
+                        document.getElementById('evt-242424').innerHTML = xxxxxx;
+                    });
 
                 });
 
@@ -302,16 +353,31 @@
                     minuteInterval: 1,
                     minGridPer: ab
                 });
-                
+
                 $("body").on('dblclick', function() {
                     console.log('double click geht');
                     var $i = $('.timeline-node.active').attr('id');
-                    
+
                     $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 2: CSU adopts lead motion on refugee ceiling</span>');
+                        xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -20px; padding: 2px;">Article 3: Seehofer after attack on Merkel: There is "no break"</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 9: Seehofer calls for an upper limit of "maximum 200,000 refugees" per year</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 14: The next provocation from Bavaria: Why Seehofer Merkel shows again</span>');
+                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 490px; top: -30px; padding: 2px;">Article 21: Angry CSU wants to change course in refugee policy</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 24: CSU Vice: Upper limit for refugees become redundant</span>');
+
+                        document.getElementById('evt-222222').innerHTML = x;
+                        document.getElementById('evt-333333').innerHTML = xx;
+                        document.getElementById('evt-999999').innerHTML = xxx;
+                        document.getElementById('evt-141414').innerHTML = xxxx;
+                        document.getElementById('evt-212121').innerHTML = xxxxx;
+                        document.getElementById('evt-242424').innerHTML = xxxxxx;
+                    });
 
 
                     setTimeout(function(){ 
-                        
+
                         var targetId = '#' + $i;
                         console.log("targetId:" + targetId);
                         var posX = $(targetId).offset().left;
@@ -344,9 +410,25 @@
                 });
 
 
-                
+
 
                 $("#myTimeline").on("afterRender.timeline", function(){
+                    x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 2: CSU adopts lead motion on refugee ceiling</span>');
+                    xx = String('<span style="  background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -20px; padding: 2px;">Article 3: Seehofer after attack on Merkel: There is "no break"</span>');
+                    xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 9: Seehofer calls for an upper limit of "maximum 200,000 refugees" per year</span>');
+                    xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 620px; top: -30px; padding: 2px;">Article 14: The next provocation from Bavaria: Why Seehofer Merkel shows again</span>');
+                    xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 490px; top: -30px; padding: 2px;">Article 21: Angry CSU wants to change course in refugee policy</span>');
+                    xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 24: CSU Vice: Upper limit for refugees become redundant</span>');
+
+                    document.getElementById('evt-222222').innerHTML = x;
+                    document.getElementById('evt-333333').innerHTML = xx;
+                    document.getElementById('evt-999999').innerHTML = xxx;
+                    document.getElementById('evt-141414').innerHTML = xxxx;
+                    document.getElementById('evt-212121').innerHTML = xxxxx;
+                    document.getElementById('evt-242424').innerHTML = xxxxxx;
+
+
+
                     // usage bootstrap's popover
                     $('.timeline-node').each(function(){
                         if ( $(this).data('toggle') === 'popover' ) {

@@ -134,8 +134,9 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <!-- jQuery Timeline -->
         <script src="js/timeline.js"></script>
-        <script>
 
+        <!-- local scripts -->
+        <script>
 
             window.onload=Upload();
             /**  var file = "\\files\\telemetryData.csv"; **/
@@ -235,14 +236,12 @@
 
 
 
-
-
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
                 $('.timeline-node.active').attr('title');
                 //console.log().css("transform", "scale(1.5)");
-
+                $('.timeline-node.active').css("border-color", "blue");
 
                 function mark($node){
                     if($node.length >=1){
@@ -277,27 +276,41 @@
 
                 };
 
-                function reset(){    
-                    $(".timeline-node").css("transform", "scale(1)");
-                    $(".timeline-node").css("border-color", "#B2B2B0");
-
-                }
 
 
-                reset();
-                $('.timeline-node.active').css("border-color", "blue");
-                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
-
-
-
                 var sel = $('.timeline-node.active').attr('title');
-                var myCustomData = sel;
-                var event = new CustomEvent('ukeysent', { detail: myCustomData })
-                window.parent.document.dispatchEvent(event);
-
+                
+                
+                /*
+                markyourukey($ukey);
+                $ukey = var pxcv; 
+                
+                
+                function markyourukey($ukey){
+                
+                  
+                console.log("mark your ukey: " + $ukey);
+                
+                }
+                */
+                
+                
+                /*
+                
+                function markmyukey(...){
+                
+                conlose.log("mark my ukey: " + ... );
+                $... .css("transform", "scale(1.5)");
+                $... .css("border-color", "blue");
+                
+                }
+                
+                */
+                
+                
             };
 
             $(function (event) {
@@ -307,12 +320,12 @@
                     $("#myTimeline").timeline('render', {minGridPer:ab});
                     $("#myTimeline").on("afterRender.timeline", function(){
 
-                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
-                        xx = String('<span style=" background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
-                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
-                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
-                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
-                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
+                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
+                        xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
+                        xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
+                        xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
+                        xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
+                        xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
                         document.getElementById('evt-111111').innerHTML = x;
                         document.getElementById('evt-777777').innerHTML = xx;
                         document.getElementById('evt-1111111').innerHTML = xxx;
@@ -327,12 +340,12 @@
                     ab-=1;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
                     $("#myTimeline").on("afterRender.timeline", function(){
-                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
-                        xx = String('<span style=" background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
-                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
-                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
-                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
-                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
+                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
+                        xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
+                        xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
+                        xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
+                        xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
+                        xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
                         document.getElementById('evt-111111').innerHTML = x;
                         document.getElementById('evt-777777').innerHTML = xx;
                         document.getElementById('evt-1111111').innerHTML = xxx;
@@ -363,12 +376,12 @@
 
                     $("#myTimeline").timeline('render', {rangeAlign:'current'});
                     $("#myTimeline").on("afterRender.timeline", function(){
-                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
-                        xx = String('<span style=" background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
-                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
-                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
-                        xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
-                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
+                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
+                        xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
+                        xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
+                        xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
+                        xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
+                        xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
                         document.getElementById('evt-111111').innerHTML = x;
                         document.getElementById('evt-777777').innerHTML = xx;
                         document.getElementById('evt-1111111').innerHTML = xxx;
@@ -413,14 +426,13 @@
 
 
 
-
                 $("#myTimeline").on("afterRender.timeline", function(){
-                    x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
-                    xx = String('<span style=" background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
-                    xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
-                    xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
-                    xxxxx = String('<span style= "background-color: #F7FF9D;  border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
-                    xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
+                    x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 420px; top: -30px; padding: 2px;">Article 1: Merkel speaks out against national ceilings</span>');
+                    xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 7: Seehofer wants to limit asylum to 200,000 refugees per year</span>');
+                    xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 11: Merkel rejects Seehofers upper limit</span>');
+                    xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 18: Limitation is not immediately unethical</span>');
+                    xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 23: CSU no longer wants an upper limit</span>');
+                    xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 27: CSU provides condition for government participation</span>');
 
                     document.getElementById('evt-111111').innerHTML = x;
                     document.getElementById('evt-777777').innerHTML = xx;
@@ -428,8 +440,6 @@
                     document.getElementById('evt-181818').innerHTML = xxxx;
                     document.getElementById('evt-232323').innerHTML = xxxxx;
                     document.getElementById('evt-272727').innerHTML = xxxxxx;
-
-
 
                     // usage bootstrap's popover
                     $('.timeline-node').each(function(){
@@ -442,16 +452,11 @@
                     });
                 });
 
-
-
             });
-
         </script>
-
         <style>
-            span:hover, span:active, span:focus, span:focus-within{
+            span:hover{
                 transform: translateY(-90%) scale(1.07);
-                z-index:999;
             }
         </style>
 

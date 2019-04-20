@@ -35,13 +35,13 @@
                     <img src="imgs/weltonline.png" width="100" height="50" align="right"/>
                     <li ><b>legend:</b></li>
 
-<!--
-                    <li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 8 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 12 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 13 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 19 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 20 </li>
-                    <li class="breadcrumb-item"> <img src="imgs/blue.png" width="20px" height="20px" /> article 28 </li>
+                    <!--
+<li class="breadcrumb-item"><img src="imgs/green.png" width="20px" height="20px" /> article 8 </li>
+<li class="breadcrumb-item"> <img src="imgs/yellow.png" width="20px" height="20px" /> article 12 </li>
+<li class="breadcrumb-item"> <img src="imgs/orange.png" width="20px" height="20px" /> article 13 </li>
+<li class="breadcrumb-item"> <img src="imgs/red.png" width="20px" height="20px" /> article 19 </li>
+<li class="breadcrumb-item"> <img src="imgs/purple.png" width="20px" height="20px" /> article 20 </li>
+<li class="breadcrumb-item"> <img src="imgs/blue.png" width="20px" height="20px" /> article 28 </li>
 
 -->
                     <li><img src="./imgs/quality_3/legend.png" width="100%" height="20px"><br> </li>
@@ -242,8 +242,7 @@
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
-                $('.timeline-node.active').css("transform", "scale(1.5)");
-                $('.timeline-node.active').css("border-color", "blue");
+                
 
                 function mark($node){
                     if($node.length >=1){
@@ -279,9 +278,23 @@
                 };
 
 
+                function reset(){    
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
 
+                }
+
+
+                reset();
+                $('.timeline-node.active').css("border-color", "blue");
+                $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
+
+                var sel = $('.timeline-node.active').attr('title');
+                var myCustomData = sel;
+                var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                window.parent.document.dispatchEvent(event);
 
 
             };
@@ -292,145 +305,145 @@
                     ab+=2;
                     $("#myTimeline").timeline('render', {minGridPer:ab});
                     $("#myTimeline").on("afterRender.timeline", function(){
-                        x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
-                        xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
-                        xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
-                        xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
-                        xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
-                        xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                        xx = String('<span style="background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                        xxxxx = String('<span style=" background-color: #F7FF9D; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
                         document.getElementById('evt-888888').innerHTML = x;
                         document.getElementById('evt-121212').innerHTML = xx;
                         document.getElementById('evt-131313').innerHTML = xxx;
                         document.getElementById('evt-191919').innerHTML = xxxx;
                         document.getElementById('evt-202020').innerHTML = xxxxx;
                         document.getElementById('evt-282828').innerHTML = xxxxxx;
-                        });
-
-
-
-
-                                        });
-
-
-                    $('#two').click(function() {
-                        ab-=2;
-                        $("#myTimeline").timeline('render', {minGridPer:ab});
-                        $("#myTimeline").on("afterRender.timeline", function(){
-                            x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
-                            xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
-                            xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
-                            xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
-                            xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
-                            xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
-                            document.getElementById('evt-888888').innerHTML = x;
-                            document.getElementById('evt-121212').innerHTML = xx;
-                            document.getElementById('evt-131313').innerHTML = xxx;
-                            document.getElementById('evt-191919').innerHTML = xxxx;
-                            document.getElementById('evt-202020').innerHTML = xxxxx;
-                            document.getElementById('evt-282828').innerHTML = xxxxxx;
-                            });
-
-
-                                            });
-
-
-
-                        $("#myTimeline").timeline({
-                            type: 'point',
-                            scale: 'days',
-                            startDatetime: '2015-11-20 00:00',
-                            rows: 9,
-                            rangeAlign: 'left',
-                            range: 1,
-                            minuteInterval: 1,
-                            minGridPer: ab
-                        });
-
-                        $("body").on('dblclick', function() {
-                            console.log('double click geht');
-                            var $i = $('.timeline-node.active');
-
-                            $("#myTimeline").timeline('render', {rangeAlign:'current'});
-                            $("#myTimeline").on("afterRender.timeline", function(){
-                                x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
-                                xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
-                                xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
-                                xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
-                                xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
-                                xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
-                                document.getElementById('evt-888888').innerHTML = x;
-                                document.getElementById('evt-121212').innerHTML = xx;
-                                document.getElementById('evt-131313').innerHTML = xxx;
-                                document.getElementById('evt-191919').innerHTML = xxxx;
-                                document.getElementById('evt-202020').innerHTML = xxxxx;
-                                document.getElementById('evt-282828').innerHTML = xxxxxx;
-                                });
-
-
-                                                setTimeout(function(){ 
-
-                                console.log('yyyy' + $i);
-                                var targetId = '#evt-' + $i;
-                                console.log(targetId);
-                                var posX = $(targetId).offset().left;
-                                console.log('PosX: ' + posX);
-
-                                if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2100) ) {
-                                    var mov = $(window).width() - $('.timeline-body').width() + 2200;
-                                    console.log('mov: ' + mov);
-
-
-                                    $('.timeline-body').animate({
-                                        scrollLeft: mov }, 2000);
-
-                                }
-
-
-                                else{
-                                    console.log('else!!!')
-                                    var mov = posX - $('.timeline-body').width() / 2;
-
-                                    $('.timeline-body').animate({
-                                        scrollLeft: mov }, 2000);
-
-                                }
-
-                            }, 3000);
-
-
-
-                        });
-
-
-
-
-                        $("#myTimeline").on("afterRender.timeline", function(){
-                            x = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
-                            xx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
-                            xxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
-                            xxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
-                            xxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
-                            xxxxxx = String('<span style="border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
-                            document.getElementById('evt-888888').innerHTML = x;
-                            document.getElementById('evt-121212').innerHTML = xx;
-                            document.getElementById('evt-131313').innerHTML = xxx;
-                            document.getElementById('evt-191919').innerHTML = xxxx;
-                            document.getElementById('evt-202020').innerHTML = xxxxx;
-                            document.getElementById('evt-282828').innerHTML = xxxxxx;
-
-
-                            // usage bootstrap's popover
-                            $('.timeline-node').each(function(){
-                                if ( $(this).data('toggle') === 'popover' ) {
-                                    $(this).attr( 'title', $(this).text() );
-                                    $(this).popover({
-                                        trigger: 'hover'
-                                    });
-                                }
-                            });
-                        });
-
                     });
+
+
+
+
+                });
+
+
+                $('#two').click(function() {
+                    ab-=2;
+                    $("#myTimeline").timeline('render', {minGridPer:ab});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                        xx = String('<span style="background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                        xxxxx = String('<span style=" background-color: #F7FF9D; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                        document.getElementById('evt-888888').innerHTML = x;
+                        document.getElementById('evt-121212').innerHTML = xx;
+                        document.getElementById('evt-131313').innerHTML = xxx;
+                        document.getElementById('evt-191919').innerHTML = xxxx;
+                        document.getElementById('evt-202020').innerHTML = xxxxx;
+                        document.getElementById('evt-282828').innerHTML = xxxxxx;
+                    });
+
+
+                });
+
+
+
+                $("#myTimeline").timeline({
+                    type: 'point',
+                    scale: 'days',
+                    startDatetime: '2015-11-20 00:00',
+                    rows: 9,
+                    rangeAlign: 'left',
+                    range: 1,
+                    minuteInterval: 1,
+                    minGridPer: ab
+                });
+
+                $("body").on('dblclick', function() {
+                    console.log('double click geht');
+                    var $i = $('.timeline-node.active');
+
+                    $("#myTimeline").timeline('render', {rangeAlign:'current'});
+                    $("#myTimeline").on("afterRender.timeline", function(){
+                        x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                        xx = String('<span style="background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                        xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                        xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                        xxxxx = String('<span style=" background-color: #F7FF9D; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                        xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                        document.getElementById('evt-888888').innerHTML = x;
+                        document.getElementById('evt-121212').innerHTML = xx;
+                        document.getElementById('evt-131313').innerHTML = xxx;
+                        document.getElementById('evt-191919').innerHTML = xxxx;
+                        document.getElementById('evt-202020').innerHTML = xxxxx;
+                        document.getElementById('evt-282828').innerHTML = xxxxxx;
+                    });
+
+
+                    setTimeout(function(){ 
+
+                        console.log('yyyy' + $i);
+                        var targetId = '#evt-' + $i;
+                        console.log(targetId);
+                        var posX = $(targetId).offset().left;
+                        console.log('PosX: ' + posX);
+
+                        if ( (posX - $('.timeline-body').width() / 2) > ($(window).width() - $('.timeline-body').width() + 2100) ) {
+                            var mov = $(window).width() - $('.timeline-body').width() + 2200;
+                            console.log('mov: ' + mov);
+
+
+                            $('.timeline-body').animate({
+                                scrollLeft: mov }, 2000);
+
+                        }
+
+
+                        else{
+                            console.log('else!!!')
+                            var mov = posX - $('.timeline-body').width() / 2;
+
+                            $('.timeline-body').animate({
+                                scrollLeft: mov }, 2000);
+
+                        }
+
+                    }, 3000);
+
+
+
+                });
+
+
+
+
+                $("#myTimeline").on("afterRender.timeline", function(){
+                    x = String('<span style="background-color: #8AF4FF; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 8: Seehofer calls the upper limit of 200,000 refugees</span>');
+                    xx = String('<span style="background-color: #CCA727; border: black solid 2px; position: absolute;  color: black; min-width: 450px; top: -30px; padding: 2px;">Article 12: Seehofer deliberately raises false expectations</span>');
+                    xxx = String('<span style=" background-color: #FAE7FD; border: black solid 2px; position: absolute;  color: black; min-width: 400px; top: -30px; padding: 2px;">Article 13: Merkel sets himself apart from Seehofer</span>');
+                    xxxx = String('<span style=" background-color: #E6FCF5; border: black solid 2px; position: absolute;  color: black; min-width: 480px; top: -30px; padding: 2px;">Article 19: Merkel leaves CSU in refugee issue again flash off</span>');
+                    xxxxx = String('<span style=" background-color: #F7FF9D; border: black solid 2px; position: absolute;  color: black; min-width: 380px; top: -30px; padding: 2px;">Article 20: Merkel rejects CSU and Austria</span>');
+                    xxxxxx = String('<span style=" background-color: #FDC69D; border: black solid 2px; position: absolute;  color: black; min-width: 520px; top: -30px; padding: 2px;">Article 28: Horst Seehofer presents conditions to Chancellor Merkel</span>');
+                    document.getElementById('evt-888888').innerHTML = x;
+                    document.getElementById('evt-121212').innerHTML = xx;
+                    document.getElementById('evt-131313').innerHTML = xxx;
+                    document.getElementById('evt-191919').innerHTML = xxxx;
+                    document.getElementById('evt-202020').innerHTML = xxxxx;
+                    document.getElementById('evt-282828').innerHTML = xxxxxx;
+
+
+                    // usage bootstrap's popover
+                    $('.timeline-node').each(function(){
+                        if ( $(this).data('toggle') === 'popover' ) {
+                            $(this).attr( 'title', $(this).text() );
+                            $(this).popover({
+                                trigger: 'hover'
+                            });
+                        }
+                    });
+                });
+
+            });
         </script>
         <style>
             span:hover{
