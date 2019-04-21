@@ -237,12 +237,12 @@
             var ab;
             ab=2; 
 
-
             $.openMyEvent = function(event) {
                 console.log('openEvent - event clicked...');
                 console.info($('.timeline-node.active').data());
                 console.log($('.timeline-node.active'));
                 
+  
 
                 function mark($node){
                     if($node.length >=1){
@@ -290,6 +290,34 @@
                 $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
+                
+                                /*
+                window.document.addEventListener('ukeyrec', handleEvent, false)
+                function handleEvent(e) {
+                    console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
+
+                    var numbersString = e.detail;
+                    var numbersArray = numbersString.split(',');
+                    $.each(numbersArray, function(index, value) { 
+                        console.log(index + ': ' + value);
+                        selectmynodes(value);
+                    });
+                }
+
+                */
+
+                function selectmynodes(value){
+                    console.log('selectmynodes');
+                    $(".timeline-node[title='" + value + "']").addClass('active');
+                    $('.timeline-node.active').css("border-color", "blue");
+                }
+
+                var numbersString = "5520,3751,2566,9999";
+                var numbersArray = numbersString.split(',');
+                $.each(numbersArray, function(index, value) { 
+                    console.log(index + ': ' + value);
+                    selectmynodes(value);
+                });
 
                 var sel = $('.timeline-node.active').attr('title');
                 var myCustomData = sel;

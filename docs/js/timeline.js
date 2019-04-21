@@ -1235,7 +1235,7 @@
                                 width : rowH - (margin * 2) + 'px',
                                 height: rowH - (margin * 2) + 'px'
                             },
-                            title: evt.label
+                            title: parseInt(evt.label)
                         });
                         if ( evt.bdColor ) {
                             tlNodeElm.css('border-color', evt.bdColor );
