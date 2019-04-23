@@ -32,18 +32,19 @@
 
     </body>
     <script>
+        /*
         window.document.addEventListener('ukeysent', handleEvent, false)
         function handleEvent(e) {
             console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
         }
-
+*/
         setTimeout(function(){
             var $head = $("iframe").contents().find("head"); 
             var url = "css/hidden.css";
             $head.append($("<link/>", { rel: "stylesheet", href: url, type: "text/css" } ));
             console.log('AUSGABE ERFOLGT!');
         }, 10000);
-        handleEvent(e);
+        //handleEvent(e);
 
 
 

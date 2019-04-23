@@ -300,8 +300,8 @@
                         selectmynodes(value);
                     });
                 }
+*/
 
-                */
 
                 function selectmynodes(value){
                     console.log('selectmynodes');
@@ -321,12 +321,18 @@
 
 
 
+                var $sel = $('.timeline-node.active').attr('title');
+                
+       
                 var sel = $('.timeline-node.active').attr('title');
                 var myCustomData = sel;
                 var event = new CustomEvent('ukeysent', { detail: myCustomData })
                 window.parent.document.dispatchEvent(event);
 
             };
+
+            
+
 
             $(function (event) {
 
