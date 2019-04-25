@@ -46,6 +46,18 @@
         }, 10000);
         //handleEvent(e);
 
+        
+        window.document.addEventListener('multikeysent', function(e){
+            console.log("SIVA:" + e.detail);
+             $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("border-color", "blue");
+            
+            var samsdata = e.detail;
+
+            var event = new CustomEvent('sam', { detail: samsdata })
+           document.dispatchEvent(new Event('preview.compiled'));
+           
+        });
+
 
 
     </script>

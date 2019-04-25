@@ -137,6 +137,8 @@
         <script>
 
 
+
+
             window.onload=Upload();
             /**  var file = "\\files\\telemetryData.csv"; **/
             function Upload() {
@@ -231,6 +233,20 @@
             ab=1; 
 
 
+            window.document.addEventListener('sam', function(e){
+                console.log("SAM:" + e.detail);
+
+                //var numbersString = e.detail;
+                //var numbersArray = numbersString.split(',');
+                //$.each(numbersArray, function(index, value) { 
+                // console.log(index + ': ' + value);
+                //selectmynodes(value);
+                // });
+            });
+
+            
+            
+
             $.openMyEvent = function(event) {
 
 
@@ -288,19 +304,9 @@
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
 
-                /*
-                window.document.addEventListener('ukeyrec', handleEvent, false)
-                function handleEvent(e) {
-                    console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
 
-                    var numbersString = e.detail;
-                    var numbersArray = numbersString.split(',');
-                    $.each(numbersArray, function(index, value) { 
-                        console.log(index + ': ' + value);
-                        selectmynodes(value);
-                    });
-                }
-*/
+
+
 
 
                 function selectmynodes(value){
@@ -320,10 +326,6 @@
 
 
 
-
-                var $sel = $('.timeline-node.active').attr('title');
-                
-       
                 var sel = $('.timeline-node.active').attr('title');
                 var myCustomData = sel;
                 var event = new CustomEvent('ukeysent', { detail: myCustomData })
@@ -331,7 +333,7 @@
 
             };
 
-            
+
 
 
             $(function (event) {
@@ -479,6 +481,8 @@
 
 
             });
+
+
 
         </script>
 

@@ -274,7 +274,7 @@ ctx.globalAlpha = 0.15;
 ctx.scale(devicePixelRatio, devicePixelRatio);
 
 //var output = d3.select("body").append("pre");
-
+var selectedkeys = [];
 var axes = svg.selectAll(".axis")
 .data(selected_dimensions)
 .enter().append("g")
@@ -555,7 +555,19 @@ function loaddrawcsv(){
                 }
             });
             selected.forEach(function(d){
+                
+                var test  = selectedkeys.push(d.ukey);
+                //var test = "1";
+               // mkey = +d.ukey;
+                //console.log(mkey);
+               
+                var event = new CustomEvent('multikeysent', { detail: test })
+                window.document.dispatchEvent(event);
+                 
+               // console.log("mark your ukey: " + evt);
 
+                
+                
                 beitypid = "beityp"+d.beityp;
                 empid ="emp"+d.emp;
                 degrid ="degr"+d.degr; 
