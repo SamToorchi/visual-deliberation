@@ -258,8 +258,8 @@
                 $(".timeline-node.active").css("transform", "scale(1.5)");
                 test($('.timeline-node.active'));
                 mark($('.timeline-node.active'));
-                
-                                /*
+
+                /*
                 window.document.addEventListener('ukeyrec', handleEvent, false)
                 function handleEvent(e) {
                     console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
@@ -293,8 +293,14 @@
                 window.parent.document.dispatchEvent(event);
 
                 $("body").on('dblclick', function() {
-                    $('.timeline-node').css("transform", "scale(1)");
-                    $('.timeline-node').css("border-color", "#B2B2B0");
+                    $(".timeline-node").css("transform", "scale(1)");
+                    $(".timeline-node").css("border-color", "#B2B2B0");
+
+                    var myCustomData = undefined;
+                    var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                    window.parent.document.dispatchEvent(event);
+
+
 
                 });
             };

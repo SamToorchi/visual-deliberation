@@ -315,13 +315,14 @@
                     $('.timeline-node.active').css("border-color", "blue");
                 }
 
+                /*
                 var numbersString = "5520,3751,2566,9999";
                 var numbersArray = numbersString.split(',');
                 $.each(numbersArray, function(index, value) { 
                     console.log(index + ': ' + value);
                     selectmynodes(value);
                 });
-
+*/
 
 
 
@@ -393,6 +394,11 @@
                 });
 
                 $("body").on('dblclick', function() {
+                    
+                     var myCustomData = undefined;
+                    var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                    window.parent.document.dispatchEvent(event);
+                    
                     console.log('double click geht');
                     var $i = $('.timeline-node.active').attr('id');
                     console.log("das aktive node:" + $('.timeline-node.active').attr('id'));

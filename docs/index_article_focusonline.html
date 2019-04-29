@@ -383,6 +383,9 @@
                 });
 
                 $("body").on('dblclick', function() {
+                     var myCustomData = undefined;
+                    var event = new CustomEvent('ukeysent', { detail: myCustomData })
+                    window.parent.document.dispatchEvent(event);
                     console.log('double click geht');
                     var $i = $('.timeline-node.active').attr('id');
 
