@@ -1,0 +1,103 @@
+//Here is the full phase working CSV to JSON using vanilla JavaScript and HTML 5, Which populates result in Console.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSV to JSON</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <script src="convert.js"></script> -->
+        <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="../js/papaparse.js"></script>
+
+    </head>
+    <body style="text-align:center">
+        CSV to JSON
+
+        <br>
+        <br>
+        <input type="file" id="fileUpload" />
+        <input type="button" id="upload" value="Upload" onclick="Upload()" />
+        <textarea rows="20" cols="79" name="htmlresults" id="htmlresults" ></textarea>
+        
+        <p id="demo">
+        
+        </p>
+    </body>
+
+    <script type="text/javascript">
+        /**  var file = "\\files\\telemetryData.csv"; **/
+        function Upload() {
+            var dirtyNodeData = [];
+            var data;
+            // var file = evt.target.files[0];
+            var file = "article_1.csv";
+
+            Papa.parse(file, {
+                //makes sure the first line is interpreted as a header, not data
+                header: true,
+
+                //allows stuff to be typed as their respective primitive types instead of only strings. turned off in this case
+                dynamicTyping: true,
+
+                //allows you to define the delimiter if not a default comma
+                delimiter: ";",
+
+                //allows you to define a comment line, which would be skipped by the parser
+                comments: "//",
+
+                //turns on fastmode, quicker but assumes no quoted fields is present
+                fastmode: true,
+
+                download: true,
+
+
+                /*
+                step: function(results){
+                    console.log(results.data);
+                    generateCode(results.data);
+                    
+                },
+                */
+                complete: function(results, file) {
+                    console.log("Parsing complete:", results, file);
+                     generateCode(results.data);
+                    
+                }
+
+
+            });
+            generateCode(dirtyNodeData);
+        }
+
+
+        
+        function generateCode(dirtyNodeData){
+
+            var generatedHTMLCode = String("");
+            var i;
+
+            // alert( obj[0].beznr_komm );
+
+            for (i = 0; i<dirtyNodeData.length; i++){
+
+                if (dirtyNodeData[i].beznr_komm == 9999){
+                    generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\' }\"> Event Relation" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                }
+
+                else {
+                    generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'#942343\' ,relation:{before:"+ dirtyNodeData[i].beznr_komm + "}, row:" + dirtyNodeData[i].row + "}\" >"  +  "Event Relation" + dirtyNodeData[i].Gesamtnr  + "from the user:"+ dirtyNodeData[i].acc_name + "</div>" +'\n'  ;
+                }
+            }
+
+            $('#htmlresults').val(generatedHTMLCode);
+            
+            
+            document.getElementById('demo').innerHTML = generatedHTMLCode;
+        }
+
+    </script>
+
+
+</html>
