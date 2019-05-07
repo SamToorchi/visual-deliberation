@@ -253,13 +253,11 @@ var container = d3.select("body").append("div")
 .style("width", width + margin.left + margin.right + "px")
 .style("height", height + margin.top + margin.bottom + "px");
 
-
 var svg = container.append("svg")
 .attr("width", width + margin.left + margin.right)
 .attr("height", height + margin.top + margin.bottom)
 .append("g")
-.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-.on('dblclick',fundbclick);
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var canvas = container.append("canvas")
 .attr("width", width * devicePixelRatio)
@@ -284,15 +282,7 @@ var axes = svg.selectAll(".axis")
 .attr("transform", function(d,i) { return "translate(" + xscale(i) + ")"; });
 //window.document.addEventListener('ukeysent', function(e){
 window.document.addEventListener('ukeysent', function(e){
-    if (e.detail = undefined)
-        {
-            d3.selectAll(".brush").call(brush.clear());
-        }
-    else
-        {
-            pxcv = e.detail; 
-        }
-    
+    pxcv = e.detail; 
     svg.remove();
     console.log("pxcvcalled",pxcv);
     svg = container.append("svg")
@@ -322,36 +312,42 @@ function clearhilight(){
     var inc;
     for (inc = 0; inc < 17; inc++) {
         col1.getElementsByClassName("beityp")[inc].style.fontWeight = "normal";
-        if(inc < 3) {
+    }
+
+    for (inc = 0; inc < 3; inc++) {
         col1.getElementsByClassName("emp")[inc].style.fontWeight = "normal";
-         
+    }
+    for (inc = 0; inc < 6; inc++) {
+        col2.getElementsByClassName("degr")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 2; inc++) {
+        col2.getElementsByClassName("hoefl")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 6; inc++) {
+        col2.getElementsByClassName("ehrl")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 5; inc++) {
+        col3.getElementsByClassName("posemo")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 6; inc++) {
+        col3.getElementsByClassName("negemo")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 2; inc++) {
+        col3.getElementsByClassName("humor")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 5; inc++) {
+        col4.getElementsByClassName("frage")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 3; inc++) {
         col4.getElementsByClassName("korr")[inc].style.fontWeight = "normal";
-       
+    }
+    for (inc = 0; inc < 3; inc++) {
         col4.getElementsByClassName("zus")[inc].style.fontWeight = "normal";
-        }
-        
-        if(inc < 6)
-            {
-                col2.getElementsByClassName("degr")[inc].style.fontWeight = "normal";
-                col2.getElementsByClassName("ehrl")[inc].style.fontWeight = "normal";
-                col3.getElementsByClassName("negemo")[inc].style.fontWeight = "normal";
-            }
-        
-        
-        if(inc < 2){
-              col2.getElementsByClassName("hoefl")[inc].style.fontWeight = "normal";
-              col3.getElementsByClassName("humor")[inc].style.fontWeight = "normal";
-        }
-      
-    
-        if(inc < 5){
-            col3.getElementsByClassName("posemo")[inc].style.fontWeight = "normal";
-            col4.getElementsByClassName("frage")[inc].style.fontWeight = "normal";
-            col5.getElementsByClassName("meta")[inc].style.fontWeight = "normal";
-            
-        }
-        
-        if(inc < 4)
+    }
+    for (inc = 0; inc < 5; inc++) {
+        col5.getElementsByClassName("meta")[inc].style.fontWeight = "normal";
+    }
+    for (inc = 0; inc < 4; inc++) {
         col5.getElementsByClassName("mod")[inc].style.fontWeight = "normal";
     }
 }
@@ -544,12 +540,12 @@ function loaddrawcsv(){
             });
 
             var selected = data.filter(function(d) {
-                clearhilight();
+          
                 if (actives.every(function(active) {
                     var dim = active.dimension;
                     // test if point is within extents for each active brush
 
-                           
+                    clearhilight();       
 
 
                     return dim.type.within(d[dim.key], active.extent, dim);
@@ -559,24 +555,21 @@ function loaddrawcsv(){
 
                 }
             });
-            
-            var test;
-            ctx.clearRect(0,0,width,height);
-            ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
-            render(selected);
-            
             selected.forEach(function(d){
-                
-                test  = selectedkeys.push(d.ukey);
+
+                var test  = selectedkeys.push(d.ukey);
                 //var test = "1";
-               // mkey = +d.ukey;
+                // mkey = +d.ukey;
                 //console.log(mkey);
-               
+
+                
                 var event = new CustomEvent('multikeysent', { detail: test })
                 window.document.dispatchEvent(event);
-           
-                
-                
+
+                // console.log("mark your ukey: " + evt);
+
+
+
                 beitypid = "beityp"+d.beityp;
                 empid ="emp"+d.emp;
                 degrid ="degr"+d.degr; 
@@ -608,7 +601,9 @@ function loaddrawcsv(){
 
 
             });
-            
+            ctx.clearRect(0,0,width,height);
+            ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
+            render(selected);
 
 
             //output.text(d3.tsvFormat(selected.slice(0,24)));
@@ -617,13 +612,7 @@ function loaddrawcsv(){
     });
 }
 
-function fundbclick() {
-    console.log("calleddbclick");
-            brush
-    .clear()
-    .event(d3.select(".brush"));
-            }
-            
+
 
 var beitypVal;
 var totalWeights;
@@ -897,8 +886,7 @@ function doit_onkeypress(event){
                     console.log("publisher" + d.ukey);
                     console.log(FinalValue);
 
-                    var eventvalue = new CustomEvent('multikeysent', { detail: FinalValue })
-                    window.document.dispatchEvent(eventvalue);
+
 
 
                 });

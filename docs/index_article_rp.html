@@ -193,27 +193,27 @@
                 for (i = 0; i<dirtyNodeData.length; i++){
 
                     if (dirtyNodeData[i].beznr_komm == 9999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 101010} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 101010, linesize:2} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 19999){
-                        generatedHTMLCode +="<div  data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 161616} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div  data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 161616, linesize:2} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 29999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 171717} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 171717, linesize:2} }\">" + dirtyNodeData[i].ukey  + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 39999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 262626} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 262626, linesize:2} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else if (dirtyNodeData[i].beznr_komm == 49999){
-                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 323232} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{row:3, eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor: \' " + "#B2B2B0" + " \' " +", callback:'$.openMyEvent()', margin:12, image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png', relation:{before: 323232, linesize:2} }\">" + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                     else {
-                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +"}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
+                        generatedHTMLCode +="<div data-timeline-node=\"{ eventId:" + dirtyNodeData[i].Gesamtnr+ ", start:\'" + dirtyNodeData[i].relative_date + "\',bdColor:\'" + "#B2B2B0" + "\', callback:'$.openMyEvent()', margin:12 ,relation:{before:"+ dirtyNodeData[i].beznr_komm   +", linesize:2}, row:" + dirtyNodeData[i].row_two + ", image:'./imgs/quality_3/" + dirtyNodeData[i].quality + ".png'}\" > "  + dirtyNodeData[i].ukey + "</div>" +'\n'  ;
                     }
 
                 }

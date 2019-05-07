@@ -46,16 +46,19 @@
         }, 10000);
         //handleEvent(e);
 
-        
+
         window.document.addEventListener('multikeysent', function(e){
-            console.log("SIVA:" + e.detail);
-             $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("border-color", "blue");
-            
+            //console.log("SIVA:" + e.detail);
+            //$("iframe").contents().find(".timeline-node").css("transform", "scale(1)");
+            //$("iframe").contents().find(".timeline-node").css("border-color", "#B2B2B0");
+            $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("border-color", "blue");
+            $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("transform", "scale(1.5)");
+
             var samsdata = e.detail;
 
             var event = new CustomEvent('sam', { detail: samsdata })
-           document.dispatchEvent(new Event('preview.compiled'));
-           
+            document.dispatchEvent(new Event('preview.compiled'));
+
         });
 
 
