@@ -23,7 +23,6 @@ var Temp_zus;
 var Temp_meta;
 var Temp_mod;
 var FinalValue;
-var qualityvalue = [];
 
 var pxcv;
 
@@ -196,75 +195,51 @@ function updateTextInput1(val) {
 document.getElementById('2a').value = CommonWeight; 
 
 function updateTextInput2(val) {
-    document.getElementById('2a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('2a').value=val; 
 }
 document.getElementById('3a').value = CommonWeight; 
 function updateTextInput3(val) {
-    document.getElementById('3a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('3a').value=val; 
 }
 document.getElementById('4a').value = CommonWeight; 
 function updateTextInput4(val) {
     document.getElementById('4a').value=val; 
-    var eventd = 13;
-    doit_onkeypress(eventd);
 }
 document.getElementById('5a').value = CommonWeight; 
 function updateTextInput5(val) {
-    document.getElementById('5a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('5a').value=val; 
 }
 document.getElementById('6a').value = CommonWeight;
 function updateTextInput6(val) {
-    document.getElementById('6a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('6a').value=val; 
 }
 document.getElementById('7a').value = CommonWeight; 
 function updateTextInput7(val) {
-    document.getElementById('7a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('7a').value=val; 
 }
 document.getElementById('8a').value = CommonWeight; 
 function updateTextInput8(val) {
-    document.getElementById('8a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('8a').value=val; 
 }
 document.getElementById('9a').value = CommonWeight;
 function updateTextInput9(val) {
-    document.getElementById('9a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('9a').value=val; 
 }
 document.getElementById('10a').value = CommonWeight; 
 function updateTextInput10(val) {
     document.getElementById('10a').value=val; 
-    var eventd = 13;
-    doit_onkeypress(eventd);
 }
 document.getElementById('11a').value = CommonWeight; 
 function updateTextInput11(val) {
-    document.getElementById('11a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('11a').value=val; 
 }
 document.getElementById('12a').value = CommonWeight; 
 function updateTextInput12(val) {
-    document.getElementById('12a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('12a').value=val; 
 }
 document.getElementById('13a').value = CommonWeight;
 function updateTextInput13(val) {
-    document.getElementById('13a').value=val;
-    var eventd = 13;
-    doit_onkeypress(eventd);
+    document.getElementById('13a').value=val; 
 }
 
 var xscale = d3.scalePoint()
@@ -919,25 +894,18 @@ function doit_onkeypress(event){
                     d.ukey = +d.ukey
 
                     FinalValue = fin1 + fin2 + fin3 + fin4 + fin5 + fin6 + fin7 + fin8 + fin9 + fin10 + fin11 + fin12 + fin13 ;
-                    
-                    
-                    qualityvalue.push(FinalValue);
-                           
+                    console.log("publisher" + d.ukey);
+                    console.log(FinalValue);
+
+                    var eventvalue = new CustomEvent('uservalues', { detail: FinalValue })
+                    window.document.dispatchEvent(eventvalue);
+
 
                 });
 
             }); 
-            qualitysend();
-             
         }
-        function qualitysend(){
-            setTimeout(function(){ 
-                            var event = new CustomEvent('uservalues', { detail: qualityvalue })
-             window.document.dispatchEvent(event);
-             //console.log(qualityvalue);
-            }, 200);
 
-        }
         var Tcnt = 0;
         var Valc ;
         for(i = 0; i < x.length; i++) {

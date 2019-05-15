@@ -1,5 +1,5 @@
 Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;row_two;ukey
-2;WurzelElement;222222;0;0;999;2015-11-20 21:33;#40FF13;100;2;0
+2;WurzelElement;222222;0;0;999;2015-11-20 21:33;#40FF13;1001;2;0
 2;Albert Butz;1;1;1;9999;2015-11-20 21:33;#40FF13;21;3;812
 2;Tom Franke;2;2;1;1;2015-11-20 21:33;#40FF13;0;4;813
 2;Ralf Goldmann;3;1;3;9999;2015-11-20 20:30;#40FF13;28;3;814
@@ -12,7 +12,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;r
 2;Dieter Schmeer;10;1;10;9999;2015-11-20 01:00;#40FF13;7;3;821
 2;Bernd König;11;1;11;9999;2015-11-20 15:38;#40FF13;7;3;822
 2;Marianne Glockner;12;1;12;9999;2015-11-20 15:38;#40FF13;7;3;823
-3;WurzelElement;333333;0;0;999;2015-11-20 15:20;#40FF13;100;2;0
+3;WurzelElement;333333;0;0;999;2015-11-20 15:20;#40FF13;1001;2;0
 3;Silvia Wittek;10001;1;1;19999;2015-11-20 15:20;#E8DE12;14;3;824
 3;Doris Mallon;10002;1;2;19999;2015-11-20 15:21;#E8DE12;7;3;825
 3;Georg Henzler;10003;1;3;19999;2015-11-20 15:22;#E8DE12;7;3;826
@@ -497,7 +497,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;r
 3;Thekla Schneider;10348;1;348;19999;2015-11-21 23:26;#E8DE12;7;3;1305
 3;Martin G. Wienhard;10349;1;349;19999;2015-11-21 23:27;#E8DE12;7;3;1306
 3;Richard Wiesheu;10350;1;350;19999;2015-11-21 23:28;#E8DE12;14;3;1307
-9;WurzelElement;999999;0;0;999;2016-01-03 00:11;#FF9417;100;2;0
+9;WurzelElement;999999;0;0;999;2016-01-03 00:11;#FF9417;1001;2;0
 9;Thomas Albrecht;20001;1;1;29999;2016-01-03 00:11;#FF9417;14;3;3158
 9;Oliver Wilhelm;20002;1;2;29999;2016-01-03 00:12;#FF9417;7;3;3159
 9;Christof Kochanowski;20003;1;3;29999;2016-01-03 00:12;#FF9417;7;3;3160
@@ -782,7 +782,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;r
 9;Hans Meyers;20273;2;272;20272;2016-01-04 11:38;#FF9417;1;4;3439
 9;Heiko Stadler;20274;1;274;29999;2016-01-04 12:51;#FF9417;14;3;3440
 9;Hans Meyers;20275;1;275;29999;2016-01-04 12:51;#FF9417;7;3;3441
-14;WurzelElemen;141414;0;0;999;2015-11-20 00:30;#E82919;100;2;0
+14;WurzelElemen;141414;0;0;999;2015-11-20 00:30;#E82919;1001;2;0
 14;Michael Muller;30001;1;1;39999;2015-11-20 00:30;#E82919;7;3;4088
 14;Tina Rasche;30002;1;2;39999;2015-11-20 00:31;#E82919;7;3;4089
 14;Paul Breitner;30003;2;2;30002;2015-11-20 00:32;#E82919;10;4;4090
@@ -1024,7 +1024,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;r
 14;Heinrich Dietz;30234;2;232;30232;2015-11-20 04:28;#E82919;1;4;4326
 14;Gerd-Dieter Zahlten;30235;1;235;39999;2015-11-20 04:29;#E82919;14;3;4327
 14;Reiner Tiroch;30236;1;236;39999;2015-11-20 04:30;#E82919;14;3;4328
-21;WurzelElement;212121;0;0;999;2016-01-20 00:30;#BF27FF;100;2;0
+21;WurzelElement;212121;0;0;999;2016-01-20 00:30;#BF27FF;1001;2;0
 21;frank wagner;40001;1;1;49999;2016-01-20 00:30;#BF27FF;14;3;5209
 21;Levent Mendyrne;40002;2;1;40001;2016-01-20 00:31;#BF27FF;-7;4;5210
 21;Michael Ršder;40003;2;1;40001;2016-01-20 00:32;#BF27FF;1;4;5211
@@ -1132,7 +1132,7 @@ Artikelnr;acc_name;Gesamtnr;row;ausg_nr;beznr_komm;relative_date;color;quality;r
 21;SIMONE BIEDERMANN;40105;1;105;49999;2016-01-20 02:14;#BF27FF;7;3;5313
 21;marion fromm;40106;1;106;49999;2016-01-20 02:15;#BF27FF;14;3;5314
 21;Cornelius Tobies;40107;1;107;49999;2016-01-20 02:16;#BF27FF;7;3;5315
-24;WurzelElement;242424;0;0;999;2016-07-09 10:25;#79A4FF;100;2;0
+24;WurzelElement;242424;0;0;999;2016-07-09 10:25;#79A4FF;1001;2;0
 24;Dietmar Gierke;50001;1;1;59999;2016-07-09 10:25;#79A4FF;7;3;5400
 24;Katrin Augustin;50002;1;2;59999;2016-07-09 11:29;#79A4FF;28;3;5401
 24;Werner Herpich;50003;1;3;59999;2016-07-09 16:37;#79A4FF;14;3;5402
