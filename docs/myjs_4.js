@@ -24,7 +24,7 @@ var Temp_meta;
 var Temp_mod;
 var FinalValue;
 var qualityvalue = [];
-var test = [];
+
 var pxcv;
 
 var color = d3.scaleOrdinal()
@@ -585,19 +585,20 @@ function loaddrawcsv(){
                 }
             });
             
-            
+            var test;
             ctx.clearRect(0,0,width,height);
             ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
             render(selected);
             
             selected.forEach(function(d){
-                var test1;
-                test1  = test.push(d.ukey);
+                
+                test  = selectedkeys.push(d.ukey);
                 //var test = "1";
                // mkey = +d.ukey;
                 //console.log(mkey);
                
-                
+                var event = new CustomEvent('multikeysent', { detail: test })
+                window.document.dispatchEvent(event);
            
                 
                 
@@ -631,22 +632,16 @@ function loaddrawcsv(){
 
 
 
-            
             });
             
-            brushkeysend();
-            //console.log(test);
+
+
             //output.text(d3.tsvFormat(selected.slice(0,24)));
 
         }
     });
 }
 
-function brushkeysend(){
-    var event = new CustomEvent('multikeysent', { detail: test })
-                window.document.dispatchEvent(event);
-                console.log(test);
-}
 function fundbclick() {
     console.log("calleddbclick");
             brush
@@ -939,7 +934,7 @@ function doit_onkeypress(event){
             setTimeout(function(){ 
                             var event = new CustomEvent('uservalues', { detail: qualityvalue })
              window.document.dispatchEvent(event);
-             console.log(qualityvalue);
+             //console.log(qualityvalue);
             }, 200);
 
         }

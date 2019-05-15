@@ -22,6 +22,7 @@
     </head>
 
     <body>
+        
         <iframe id="iframe" src="index_article_zeitonline.html" width="100%" height="1100px" style=".card-block{display: none;}"></iframe>
         <iframe  id="iframe" src="index_article_weltonline.html" width="100%" height="800px"></iframe>
         <iframe id="iframe" src="index_article_6.html" width="100%" height="800px"></iframe>
@@ -48,15 +49,28 @@
 
 
         window.document.addEventListener('multikeysent', function(e){
-            $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("border-color", "blue");
-            $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("transform", "scale(1.5)");
 
-            /*
-            var samsdata = e.detail;
-
-            var event = new CustomEvent('sam', { detail: samsdata })
-            document.dispatchEvent(new Event('preview.compiled'));
+            /* //just first iFrame
+            var i, iframe = document.querySelector('iframe').contentWindow.document;
+            for (i = 0; i < e.detail.length; i++){
+                iframe.querySelector("[title=\"" + i + "\"]").style.borderColor = "blue";
+            }
             */
+
+            document.querySelectorAll("iframe").forEach(function (iframe) {
+                iframe.contentWindow.document.querySelectorAll("[title]").forEach(function (elm) {
+                elm.style.borderColor = "#B2B2B0";
+                });
+            
+                iframe.contentWindow.document.querySelectorAll("[title]").forEach(function (elm) {
+                    var id = +elm.getAttribute("title");
+                    if (id!=0 && id < e.detail.length) {
+                        elm.style.borderColor = "blue";
+                    }
+                })
+                
+            });
+
 
         });
         window.document.addEventListener('uservalues', function(e){
