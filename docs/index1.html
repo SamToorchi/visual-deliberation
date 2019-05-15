@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>     
+<html>
+    <meta charset="utf-8">
+    <title>Visual Dillebration</title>
+    <style>
+        
+        #links{
+            margin-bottom:590px;
+        }
+
+        .parcoords{
+            /*border: black solid 5px;*/
+            position:fixed;
+            bottom:-15px;
+            background-color: white; 
+            margin-bottom:120px;
+        }
+
+        .fixed{
+            /*position: fixed;
+            bottom:0;
+            width: 100%;
+            border: black solid 2px;*/
+            position:fixed;
+            bottom:0;
+            background-color: white;
+            z-index:999;
+        }
+
+        .trams-conditions #toggle4 {
+            font-size: 19px;
+            color: #747474;
+            text-decoration: none;
+            padding-left: 50px;
+            background-size: 19%;
+        }
+
+        .trams-conditions {
+            padding: 50x 10px;
+            margin: 10px 190px;
+        }
+
+        .trams-conditions .plus-icon {
+            background: url('http://icons.iconarchive.com/icons/icons8/ios7/256/User-Interface-Plus-icon.png') no-repeat left center;
+        }
+
+        .trams-conditions .plus-icon.mins-icon {
+            background: url('http://icons.iconarchive.com/icons/icons8/ios7/256/User-Interface-Minus-icon.png') no-repeat left center;
+        }
+
+        .trams-conditions .trams-con {
+            font-size: 12px;
+            color: #747474;
+            margin-top: 10px;
+            display: none;
+            overflow: auto;
+            max-width: 1986px;
+        }
+
+        #active2 #tab2,
+        #active3 #tab3,
+        #active4 #tab4,
+        #active5 #tab5 {
+            font-weight:bold;
+            text-decoration:none;
+            color:#000;
+        }
+
+
+        /* Start of Column CSS */
+        #container5 {
+            clear:left;
+            float:left;
+            width:100%;
+            overflow:hidden;
+            background:#eee; /* column 5 background colour */
+        }
+        #container4 {
+            clear:left;
+            float:left;
+            width:100%;
+            position:relative;
+            right:20%;
+            background:#eee; /* column 4 background colour */
+        }
+        #container3 {
+            clear:left;
+            float:left;
+            width:100%;
+            position:relative;
+            right:20%;
+            background:#eee; /* column 3 background colour */
+        }
+        #container2 {
+            clear:left;
+            float:left;
+            width:100%;
+            position:relative;
+            right:20%;
+            background:#eee; /* column 2 background colour */
+        }
+        #container1 {
+            float:left;
+            width:100%;
+            position:relative;
+            right:20%;
+            background:#eee; /* column 1 background colour */
+        }
+        #col1 {
+            float:left;
+            width:16%;
+            position:relative;
+            left:82%;
+            overflow:hidden;
+        }
+        #col2 {
+            float:left;
+            width:16%;
+            position:relative;
+            left:86%;
+            overflow:hidden;
+        }
+        #col3 {
+            float:left;
+            width:16%;
+            position:relative;
+            left:90%;
+            overflow:hidden;
+        }
+        #col4 {
+            float:left;
+            width:16%;
+            position:relative;
+            left:94%;
+            overflow:hidden;
+        }
+        #col5 {
+            float:left;
+            width:16%;
+            position:relative;
+            left:98%;
+            overflow:hidden;
+        }
+
+
+    </style>
+    <body>
+
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://bl.ocks.org/syntagmatic/raw/3341641/render-queue.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="style.css"></link>
+
+    <div id="links"></div>
+    <div class="fixed">
+        <input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 7%; position: relative;" onchange="updateTextInput1(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 10%; position: relative;" onchange="updateTextInput2(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 13%; position: relative;" onchange="updateTextInput3(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 16%; position: relative;" onchange="updateTextInput4(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 18.5%; position: relative;" onchange="updateTextInput5(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 21.5%; position: relative;" onchange="updateTextInput6(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 24%; position: relative;" onchange="updateTextInput7(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 26.5%; position: relative;" onchange="updateTextInput8(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 28.5%; position: relative;" onchange="updateTextInput9(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 31.5%; position: relative;" onchange="updateTextInput10(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 34.5%; position: relative;" onchange="updateTextInput11(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 37.5%; position: relative;" onchange="updateTextInput12(this.value);">
+
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;left: 39.5%; position: relative;" onchange="updateTextInput13(this.value);">
+
+<form><input type="text" class="value" id="1a" style="width:4%;left: 7%; position: relative;" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" >
+
+
+<input type="text" class="value"  id="2a" style="width:4%;left: 10%; position: relative;" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" />
+
+
+<input type="text" class="value"  id="3a" style="width:4%;left: 13%; position: relative;" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" >
+
+<input type="text" class="value"  id="4a" style="width:4%;left: 16%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="5a" style="width:4%;left: 18.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="6a" style="width:4%;left: 21.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="7a" style="width:4%;left: 24%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="8a" style="width:4%;left: 26.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="9a" style="width:4%;left: 28.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="10a" style="width:4%;left: 31.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="11a" style="width:4%;left: 34.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="12a" style="width:4%;left: 37.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
+
+<input type="text" class="value"  id="13a" style="width:4%;left: 39.5%; position: relative;" name="" value="" onkeypress="javascript:doit_onkeypress(event);">  
+
+
+</form>
+        <script src="myjs.js"></script>
+
+
+
+        <div class="trams-conditions">
+            <a href="#" id="toggle4" class="plus-icon">Descirption about Axis</a>
+            <div class="trams-con">
+
+                <div id="container5">
+                    <div id="container4">
+                        <div id="container3">
+                            <div id="container2">
+                                <div id="container1">
+                                    <div id="col1">
+                                        <!-- Column one start -->
+                                        <h2>beityp</h2>
+                                        <p id ="beityp0" class ="beityp" style="margin-bottom: 0rem;">0 is not defined</p> 
+                                        <p id ="beityp10" class ="beityp" style="margin-bottom: 0rem;">10 is not defined</p>  
+                                        <p id ="beityp11" class ="beityp" style="margin-bottom: 0rem;">11 is not defined</p> 
+                                        <p id ="beityp12" class ="beityp" style="margin-bottom: 0rem;">12 is not defined</p> 
+                                        <p id ="beityp20" class ="beityp" style="margin-bottom: 0rem;">20. answers without statement / reason</p> 
+                                        <p id ="beityp21" class ="beityp" style="margin-bottom: 0rem;">21. unfounded answer</p>  
+                                        <p id ="beityp22" class ="beityp" style="margin-bottom: 0rem;">22. reasoned answer</p> 
+                                        <p id ="beityp201" class ="beityp" style ="margin-bottom: 0rem;">201. approval </p> 
+                                        <p id ="beityp202" class ="beityp" style="margin-bottom: 0rem;">202. rejection</p>
+
+                                        <p id ="beityp211" class ="beityp" style="margin-bottom: 0rem;">211. Unfounded claim</p> 
+                                        <p id ="beityp212" class ="beityp" style="margin-bottom: 0rem;">212. Unfounded contradiction</p> 
+                                        <p id ="beityp213" class ="beityp" style="margin-bottom: 0rem;">213. Unfounded defense</p>
+                                        <p id ="beityp214" class ="beityp" style="margin-bottom: 0rem;">214. Unfounded approval</p>
+                                        <p id ="beityp221" class ="beityp" style="margin-bottom: 0rem;">221. Reasoned statement / opinion</p>
+                                        <p id ="beityp222" class ="beityp" style="margin-bottom: 0rem;">222. Reasoned contradiction</p>
+                                        <p id ="beityp223" class ="beityp" style="margin-bottom: 0rem;">223. Reasoned defense</p>
+                                        <p id ="beityp224" class ="beityp" style="margin-bottom: 0rem;">224. Well-founded approval</p> 
+                                        <h2>emp</h2>
+
+                                        <p id ="emp0" class ="emp" style="margin-bottom: 0rem;"> 0. Empathy to other positions</p>
+                                        <p id ="emp1" class ="emp" style="margin-bottom: 0rem;">1. Empathy to panelists</p> 
+                                        <p id ="emp2" class ="emp" style="margin-bottom: 0rem;">2. Empathy to third person</p>
+
+
+                                    </div>
+                                    <div id="col2">
+                                        <!-- Column two start -->
+                                        <h2>degr</h2>
+                                        <p id ="degr0" class ="degr" style="margin-bottom: 0rem;">0. No degrading treatment </p>
+                                        <p id ="degr1" class ="degr"style="margin-bottom: 0rem;">1. Despicable use of comments </p>
+                                        <p id ="degr2" class ="degr"style="margin-bottom: 0rem;">2. Despicable treatment of statements</p>
+                                        <p id ="degr3" class ="degr"style="margin-bottom: 0rem;">3. Dismissive handling of utterances </p>
+                                        <p id ="degr4" class ="degr"style="margin-bottom: 0rem;">4. Despicable treatment of statements by several groups </p>
+                                        <p id ="degr9" class ="degr"style="margin-bottom: 0rem;">9. Despicable treatment of statements made by other persons</p>
+
+                                        <h2>hoefl</h2>
+
+                                        <p id ="hoefl0" class ="hoefl" style="margin-bottom: 0rem;">0. Extraordinary courtesies do not occur</p>
+                                        <p id ="hoefl1" class ="hoefl" style="margin-bottom: 0rem;">1. Extraordinary courtesies occur</p>
+                                        <h2>ehrl</h2>
+                                        <p id ="ehrl0" class ="ehrl" style="margin-bottom: 0rem;">0. Honesty of other panelists </p>
+                                        <p id ="ehrl1" class ="ehrl" style="margin-bottom: 0rem;">1. Honesty of other panelists is questioned </p>
+                                        <p id ="ehrl2" class ="ehrl" style="margin-bottom: 0rem;">2. Honesty of the journalist is questioned </p>
+                                        <p id ="ehrl3" class ="ehrl" style="margin-bottom: 0rem;">3. Honesty of politicians is questioned </p>
+                                        <p id ="ehrl4" class ="ehrl" style="margin-bottom: 0rem;">4. Honesty of several stakeholder groups is questioned</p>
+                                        <p id ="ehrl9" class ="ehrl" style="margin-bottom: 0rem;">9. Honesty of other people is questioned</p>
+
+
+                                        <!-- Column two end -->
+                                    </div>
+                                    <div id="col3">
+                                        <!-- Column three start -->
+                                        <h2>posemo</h2>
+                                        <p id ="posemo0" class ="posemo" style="margin-bottom: 0rem;">0. No expression of positive emotions</p>
+                                        <p id ="posemo10" class ="posemo" style="margin-bottom: 0rem;">10. Contain positive emotion</p> 
+                                        <p id ="posemo11" class ="posemo" style="margin-bottom: 0rem;">11. Expressions of joy</p> 
+                                        <p id ="posemo12" class ="posemo" style="margin-bottom: 0rem;">12. Expressions of love </p>
+                                        <p id ="posemo13" class ="posemo" style="margin-bottom: 0rem;">13. Expressions of positive</p>
+                                        <h2>negemo</h2>
+                                        <p id ="negemo0" class ="negemo" style="margin-bottom: 0rem;">0. No expression of negative emotions </p>
+                                        <p id ="negemo10" class ="negemo" style="margin-bottom: 0rem;">10. Negative emotion included </p>
+                                        <p id ="negemo11" class ="negemo" style="margin-bottom: 0rem;">11. Expressions of anger</p> 
+                                        <p id ="negemo12" class ="negemo" style="margin-bottom: 0rem;">12. Expressions of sadness </p>
+                                        <p id ="negemo13" class ="negemo" style="margin-bottom: 0rem;">13. Expressions of negative</p>
+                                        <p id ="negemo14" class ="negemo" style="margin-bottom: 0rem;"> 14. Expressions of fear</p>
+                                        <h2>humor</h2>
+                                        <p id ="humor0" class ="humor" style="margin-bottom: 0rem;">0. No expression of humor in the post available </p>
+                                        <p id ="humor1" class ="humor" style="margin-bottom: 0rem;">1. Humor in the post available</p>
+
+                                    </div>
+                                    <div id="col4">
+                                        <!-- Column four start -->
+                                        <h2>frage</h2>
+                                        <p id ="frage0" class ="frage" style="margin-bottom: 0rem;">0. No question available or recognizable </p>
+                                        <p id ="frage10" class ="frage" style="margin-bottom: 0rem;">10. Question in the discussion post of a user available </p>
+                                        <p id ="frage11" class ="frage" style="margin-bottom: 0rem;">11. asked a question </p>
+                                        <p id ="frage12" class ="frage" style="margin-bottom: 0rem;">12. Demand or inquiry </p>
+                                        <p id ="frage13" class ="frage" style="margin-bottom: 0rem;">13. Rhetorical question that does not require </p>
+                                        <h2>korr</h2>
+                                        <p id ="korr0" class ="korr" style="margin-bottom: 0rem;">0. No corrective statement available </p>
+                                        <p id ="korr1" class ="korr" style="margin-bottom: 0rem;">1. corrective statement on the journalistic </p>
+                                        <p id ="korr2" class ="korr" style="margin-bottom: 0rem;">2. corrective statement to another discussion </p>
+                                        <h2>zus</h2>
+                                        <p id ="zus0" class ="zus" style="margin-bottom: 0rem;">0. No summary of previous discussion </p>
+                                        <p id ="zus1" class ="zus" style="margin-bottom: 0rem;">1. Summary of previous discussion  without synthesis.</p>
+                                        <p id ="zus2" class ="zus" style="margin-bottom: 0rem;">2. Summary of previous discussion with synthesis.</p>
+
+
+                                        <!-- Column four end -->
+                                    </div>
+                                    <div id="col5">
+                                        <!-- Column five start -->
+                                        <h2>meta</h2>
+                                        <p id ="meta0" class ="meta" style="margin-bottom: 0rem;">0. No Metatalk available </p>
+                                        <p id ="meta10" class ="meta" style="margin-bottom: 0rem;">10. Metatalk present in discussion </p>
+                                        <p id ="meta11" class ="meta" style="margin-bottom: 0rem;">11. Metatalk exists as self-reflection </p>
+                                        <p id ="meta12" class ="meta" style="margin-bottom: 0rem;">12. etatalk exists as a third-party reflection</p>
+                                        <p id ="meta20" class ="meta" style="margin-bottom: 0rem;">20. Thematizing Metatalk in public debate </p>
+                                        <h2>mod</h2>
+                                        <p id ="mod0" class ="mod" style="margin-bottom: 0rem;">0. No discussion of the enforcemen </p>
+                                        <p id ="mod10" class ="mod" style="margin-bottom: 0rem;">10. Topic of the journalistic presentation </p>
+                                        <p id ="mod11" class ="mod" style="margin-bottom: 0rem;">11. Positive comments </p>
+                                        <p id ="mod12" class ="mod" style="margin-bottom: 0rem;">12. Negative Statements</p>
+
+                                        <!-- Column five end -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <script>
+            $("#links").load("publisher.html");
+            $('#toggle4').click(function() {
+                $('.trams-con').slideToggle('fast');
+                if ($(this).hasClass('mins-icon')) {
+                    $(this).removeClass('mins-icon').addClass('plus-icon');
+                } else {
+                    $(this).addClass('mins-icon');
+                }
+                return false;
+            });
+        </script>
+
+
+        </body>
+</html>
