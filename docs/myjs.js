@@ -591,6 +591,7 @@ function loaddrawcsv(){
             render(selected);
             
             selected.forEach(function(d){
+                
                 var test1;
                 test1  = test.push(d.ukey);
                 //var test = "1";
@@ -635,6 +636,7 @@ function loaddrawcsv(){
             });
             
             brushkeysend();
+            test = [];
             //console.log(test);
             //output.text(d3.tsvFormat(selected.slice(0,24)));
 
@@ -645,7 +647,6 @@ function loaddrawcsv(){
 function brushkeysend(){
     var event = new CustomEvent('multikeysent', { detail: test })
                 window.document.dispatchEvent(event);
-                console.log(test);
 }
 function fundbclick() {
     console.log("calleddbclick");
@@ -684,6 +685,7 @@ function doit_onkeypress(event){
         //Intilizing the Counter for Check changed calues
         function xyz(){
             console.log("called");
+            
             d3.csv("Comments_Final.csv", function(data) {
                 data.forEach(function(d) {
 
@@ -925,7 +927,7 @@ function doit_onkeypress(event){
 
                     FinalValue = fin1 + fin2 + fin3 + fin4 + fin5 + fin6 + fin7 + fin8 + fin9 + fin10 + fin11 + fin12 + fin13 ;
                     
-                    
+                    //console.log(FinalValue);
                     qualityvalue.push(FinalValue);
                            
 
@@ -939,9 +941,9 @@ function doit_onkeypress(event){
             setTimeout(function(){ 
                             var event = new CustomEvent('uservalues', { detail: qualityvalue })
              window.document.dispatchEvent(event);
-             console.log(qualityvalue);
+             //console.log(qualityvalue);
             }, 200);
-
+          qualityvalue =[];
         }
         var Tcnt = 0;
         var Valc ;

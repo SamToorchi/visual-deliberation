@@ -23,7 +23,8 @@ var Temp_zus;
 var Temp_meta;
 var Temp_mod;
 var FinalValue;
-
+var qualityvalue = [];
+var test = [];
 var pxcv;
 
 var color = d3.scaleOrdinal()
@@ -195,51 +196,75 @@ function updateTextInput1(val) {
 document.getElementById('2a').value = CommonWeight; 
 
 function updateTextInput2(val) {
-    document.getElementById('2a').value=val; 
+    document.getElementById('2a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('3a').value = CommonWeight; 
 function updateTextInput3(val) {
-    document.getElementById('3a').value=val; 
+    document.getElementById('3a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('4a').value = CommonWeight; 
 function updateTextInput4(val) {
     document.getElementById('4a').value=val; 
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('5a').value = CommonWeight; 
 function updateTextInput5(val) {
-    document.getElementById('5a').value=val; 
+    document.getElementById('5a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('6a').value = CommonWeight;
 function updateTextInput6(val) {
-    document.getElementById('6a').value=val; 
+    document.getElementById('6a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('7a').value = CommonWeight; 
 function updateTextInput7(val) {
-    document.getElementById('7a').value=val; 
+    document.getElementById('7a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('8a').value = CommonWeight; 
 function updateTextInput8(val) {
-    document.getElementById('8a').value=val; 
+    document.getElementById('8a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('9a').value = CommonWeight;
 function updateTextInput9(val) {
-    document.getElementById('9a').value=val; 
+    document.getElementById('9a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('10a').value = CommonWeight; 
 function updateTextInput10(val) {
     document.getElementById('10a').value=val; 
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('11a').value = CommonWeight; 
 function updateTextInput11(val) {
-    document.getElementById('11a').value=val; 
+    document.getElementById('11a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('12a').value = CommonWeight; 
 function updateTextInput12(val) {
-    document.getElementById('12a').value=val; 
+    document.getElementById('12a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 document.getElementById('13a').value = CommonWeight;
 function updateTextInput13(val) {
-    document.getElementById('13a').value=val; 
+    document.getElementById('13a').value=val;
+    var eventd = 13;
+    doit_onkeypress(eventd);
 }
 
 var xscale = d3.scalePoint()
@@ -560,20 +585,20 @@ function loaddrawcsv(){
                 }
             });
             
-            var test;
+            
             ctx.clearRect(0,0,width,height);
             ctx.globalAlpha = d3.min([0.85/Math.pow(selected.length,0.3),1]);
             render(selected);
             
             selected.forEach(function(d){
                 
-                test  = selectedkeys.push(d.ukey);
+                var test1;
+                test1  = test.push(d.ukey);
                 //var test = "1";
                // mkey = +d.ukey;
                 //console.log(mkey);
                
-                var event = new CustomEvent('multikeysent', { detail: test })
-                window.document.dispatchEvent(event);
+                
            
                 
                 
@@ -607,16 +632,22 @@ function loaddrawcsv(){
 
 
 
+            
             });
             
-
-
+            brushkeysend();
+            test1 = [];
+            console.log(test);
             //output.text(d3.tsvFormat(selected.slice(0,24)));
 
         }
     });
 }
 
+function brushkeysend(){
+    var event = new CustomEvent('multikeysent', { detail: test })
+                window.document.dispatchEvent(event);
+}
 function fundbclick() {
     console.log("calleddbclick");
             brush
@@ -654,6 +685,7 @@ function doit_onkeypress(event){
         //Intilizing the Counter for Check changed calues
         function xyz(){
             console.log("called");
+            
             d3.csv("Comments_Final.csv", function(data) {
                 data.forEach(function(d) {
 
@@ -894,18 +926,25 @@ function doit_onkeypress(event){
                     d.ukey = +d.ukey
 
                     FinalValue = fin1 + fin2 + fin3 + fin4 + fin5 + fin6 + fin7 + fin8 + fin9 + fin10 + fin11 + fin12 + fin13 ;
-                    console.log("publisher" + d.ukey);
+                    
                     console.log(FinalValue);
-
-                    var eventvalue = new CustomEvent('uservalues', { detail: FinalValue })
-                    window.document.dispatchEvent(eventvalue);
-
+                    qualityvalue.push(FinalValue);
+                           
 
                 });
 
             }); 
+            qualitysend();
+             
         }
-
+        function qualitysend(){
+            setTimeout(function(){ 
+                            var event = new CustomEvent('uservalues', { detail: qualityvalue })
+             window.document.dispatchEvent(event);
+             //console.log(qualityvalue);
+            }, 200);
+          qualityvalue =[];
+        }
         var Tcnt = 0;
         var Valc ;
         for(i = 0; i < x.length; i++) {
